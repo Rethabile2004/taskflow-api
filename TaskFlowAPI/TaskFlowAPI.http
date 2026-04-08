@@ -1,0 +1,25 @@
+﻿@TaskFlowAPI_HostAddress = https://localhost:7087
+
+POST {{TaskFlowAPI_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn POST requests",
+  "description": "Week 1 Session 2 practice",
+  "isCompleted": false
+}
+
+###
+
+GET {{TaskFlowAPI_HostAddress}}/api/tasks
+
+###
+
+@id=01
+GET {{TaskFlowAPI_HostAddress}}/api/tasks/{{id}}
+
+###
+
+GET {{TaskFlowAPI_HostAddress}}/api/tasks
+
+###

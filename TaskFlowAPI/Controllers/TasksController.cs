@@ -7,14 +7,13 @@ namespace TaskFlowAPI.Controllers
     [Route("api/[controller]")]
     public class TasksController : ControllerBase
     {
-        // Temporary in-memory list — we replace this with a DB in Week 3
         private static List<TaskItem> _tasks = new List<TaskItem>
         {
             new TaskItem { Id = 1, Title = "Buy groceries", Description = "Milk, eggs, bread" },
             new TaskItem { Id = 2, Title = "Study Web API", Description = "Week 1 Session 1" },
             new TaskItem { Id = 3, Title = "Exercise", Description = "30 min cardio", IsCompleted = true }
         };
-
+        private static int _nextId = 4;
         // GET api/tasks
         [HttpGet]
         public ActionResult<IEnumerable<TaskItem>> GetAllTasks()
@@ -34,6 +33,15 @@ namespace TaskFlowAPI.Controllers
             }
 
             return Ok(task); // 200
+        }
+        [HttpPost]
+        public ActionResult<TaskItem> CreateTask(TaskItem newTask)
+        {
+            newTask.Id = _nextId++;
+            newTask.CreatedAt = DateTime.UtcNow;
+
+            _tasks.Add(newTask);
+            return CreatedAtAction(nameof(GetTaskById), new { id = newTask.Id }, newTask);
         }
     }
 }

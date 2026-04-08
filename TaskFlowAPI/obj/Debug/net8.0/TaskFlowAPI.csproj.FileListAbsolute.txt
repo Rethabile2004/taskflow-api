@@ -35,3 +35,4 @@ C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\De
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\TaskFlowAPI.pdb
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\TaskFlowAPI.genruntimeconfig.cache
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\ref\TaskFlowAPI.dll
+C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\TaskFlowAPI.sourcelink.json
