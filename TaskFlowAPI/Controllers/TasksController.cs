@@ -41,7 +41,31 @@ namespace TaskFlowAPI.Controllers
             newTask.CreatedAt = DateTime.UtcNow;
 
             _tasks.Add(newTask);
-            return CreatedAtAction(nameof(GetTaskById), new { id = newTask.Id }, newTask);
+            return CreatedAtAction(nameof(GetTaskById), new { id = newTask.Id }, newTask);// 201 created with a location pointing to the new source
+        }
+        [HttpPut("{id}")]
+        public ActionResult UpdateTask(int id, TaskItem updatedItem)
+        {
+            var existingTask = _tasks.FirstOrDefault(t => t.Id==id);
+            if (existingTask == null)
+            {
+                return NotFound();//404 not found
+            }
+            existingTask.Title = updatedItem.Title;
+            existingTask.Description = updatedItem.Description;
+            existingTask.IsCompleted = updatedItem.IsCompleted;
+            return NoContent(); //204 success nothing to return
+        }
+        [HttpDelete("{id}")]
+        public ActionResult DeleteTask(int id)
+        {
+            var item = _tasks.FirstOrDefault(t => t.Id == id);
+            if (item == null)
+            {
+                return NotFound(); // 404 Not found
+            }
+            _tasks.Remove(item);
+            return NoContent();// 204 success nothing to return
         }
     }
 }
