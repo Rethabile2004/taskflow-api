@@ -2,7 +2,7 @@
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
 
-namespace TaskFlowAPI.Controllersz
+namespace TaskFlowAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -34,7 +34,7 @@ namespace TaskFlowAPI.Controllersz
             return Ok(resposeDto);
         }
         [HttpGet("{id}")]
-        public ActionResult<TaskResponseDto>GetTaskById(int id)
+        public ActionResult<TaskResponseDto> GetTaskById(int id)
         {
             var item = _tasks.FirstOrDefault(t => t.Id == id);
             if (item == null)
@@ -44,21 +44,21 @@ namespace TaskFlowAPI.Controllersz
             return Ok(MapToResponseDto(item));//200
         }
         [HttpPost]
-        public ActionResult<TaskResponseDto>CreateTask(TaskCreateDto newTask)
+        public ActionResult<TaskResponseDto> CreateTask(TaskCreateDto newTask)
         {
             var createTask = new TaskItem
             {
                 CreatedAt = DateTime.UtcNow,
                 Description = newTask.Description,
                 Id = _nextId++,
-                IsCompleted=newTask.IsCompleted,
-                Title=newTask.Title,                
+                IsCompleted = newTask.IsCompleted,
+                Title = newTask.Title,
             };
             _tasks.Add(createTask);
             return CreatedAtAction(nameof(GetTaskById), new { id = createTask.Id }, MapToResponseDto(createTask));
         }
-        [HttpPut("{id}")]
-        public ActionResult<TaskResponseDto> UpdateTask(int id,TaskCreateDto updateDto)
+        [HttpPatch("{id}")]
+        public ActionResult<TaskResponseDto> UpdateTask(int id, TaskCreateDto updateDto)
         {
             var existing = _tasks.FirstOrDefault(t => t.Id == id);
             if (existing == null)
@@ -71,10 +71,11 @@ namespace TaskFlowAPI.Controllersz
             return NoContent();// 204
         }
         [HttpDelete("{id}")]
-        public ActionResult<TaskResponseDto>DeleteTask(int id)
+        public ActionResult<TaskResponseDto> DeleteTask(int id)
         {
             var existing = _tasks.FirstOrDefault(t => t.Id == id);
-            if(existing == null){
+            if (existing == null)
+            {
                 return NotFound();
             }
             _tasks.Remove(existing);

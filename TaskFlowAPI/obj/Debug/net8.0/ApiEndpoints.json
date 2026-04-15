@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TaskFlowAPI.Models.TaskItem, TaskFlowAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TaskFlowAPI.DTOs.TaskResponseDto, TaskFlowAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,13 +29,13 @@
     "Parameters": [
       {
         "Name": "newTask",
-        "Type": "TaskFlowAPI.Models.TaskItem",
+        "Type": "TaskFlowAPI.DTOs.TaskCreateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskFlowAPI.Models.TaskItem",
+        "Type": "TaskFlowAPI.DTOs.TaskResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskFlowAPI.Models.TaskItem",
+        "Type": "TaskFlowAPI.DTOs.TaskResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -75,7 +75,7 @@
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "UpdateTask",
     "RelativePath": "api/Tasks/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -85,12 +85,22 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedItem",
-        "Type": "TaskFlowAPI.Models.TaskItem",
+        "Name": "updateDto",
+        "Type": "TaskFlowAPI.DTOs.TaskCreateDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskFlowAPI.DTOs.TaskResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
@@ -106,6 +116,16 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskFlowAPI.DTOs.TaskResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]
