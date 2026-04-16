@@ -57,7 +57,7 @@ namespace TaskFlowAPI.Controllers
             _tasks.Add(createTask);
             return CreatedAtAction(nameof(GetTaskById), new { id = createTask.Id }, MapToResponseDto(createTask));
         }
-        [HttpPatch("{id}")]
+        [HttpPut("{id}")]
         public ActionResult<TaskResponseDto> UpdateTask(int id, TaskCreateDto updateDto)
         {
             var existing = _tasks.FirstOrDefault(t => t.Id == id);
@@ -69,6 +69,28 @@ namespace TaskFlowAPI.Controllers
             existing.Description = updateDto.Description;
             existing.IsCompleted = updateDto.IsCompleted;
             return NoContent();// 204
+        }
+        [HttpPatch("{id}")]
+        public ActionResult<TaskResponseDto> PatchTask(int id, TaskPatchDto patchDto)
+        {
+            var existing = _tasks.FirstOrDefault(t => t.Id == id);
+            if (existing == null)
+            {
+                return NotFound();
+            }
+            if (patchDto.Title != null)
+            {
+                existing.Title = patchDto.Title;
+            }
+            if (patchDto.Description != null)
+            {
+                existing.Description = patchDto.Description;
+            }
+            if (patchDto.IsCompleted != null)
+            {
+                existing.IsCompleted = patchDto.IsCompleted.Value;
+            }
+            return NoContent();
         }
         [HttpDelete("{id}")]
         public ActionResult<TaskResponseDto> DeleteTask(int id)
