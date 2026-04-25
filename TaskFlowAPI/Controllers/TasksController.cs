@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
+using TaskFlowAPI.Repositories;
 
 namespace TaskFlowAPI.Controllers
 {
@@ -8,13 +9,15 @@ namespace TaskFlowAPI.Controllers
     [Route("api/[controller]")]
     public class TasksController : ControllerBase
     {
-        private static List<TaskItem> _tasks =
-        [
-            new TaskItem { Id = 1, Title = "Buy groceries", Description = "Milk, eggs, bread" },
-            new TaskItem { Id = 2, Title = "Study Web API", Description = "Week 1 Session 1" },
-            new TaskItem { Id = 3, Title = "Exercise", Description = "30 min cardio", IsCompleted = true }
-        ];
-        private static int _nextId = 4;
+        private readonly ITaskRepository _repository;
+
+        // DI container injects ITaskRepository automatically
+        public TasksController(ITaskRepository repository)
+        {
+            _repository = repository;
+        }
+
+        // ── Helper: Map TaskItem to TaskResponseDto ───────────────────────────
         private TaskResponseDto MapToResponseDto(TaskItem task)
         {
             return new TaskResponseDto
@@ -22,85 +25,125 @@ namespace TaskFlowAPI.Controllers
                 Id = task.Id,
                 Title = task.Title,
                 Description = task.Description,
-                CreatedAt = task.CreatedAt,
-                IsCompleted = task.IsCompleted
+                IsCompleted = task.IsCompleted,
+                CreatedAt = task.CreatedAt
             };
         }
-        // GET api/tasks
+
+        // ── GET ALL ───────────────────────────────────────────────────────────
+
         [HttpGet]
-        public ActionResult<IEnumerable<TaskResponseDto>> GetAllTasks()
+        public async Task<ActionResult<IEnumerable<TaskResponseDto>>> GetAllTasks()
         {
-            var resposeDto = _tasks.Select(t => MapToResponseDto(t));
-            return Ok(resposeDto);
+            var tasks = await _repository.GetAllAsync();
+            var responseDtos = tasks.Select(task => MapToResponseDto(task));
+            return Ok(responseDtos);
         }
+
+        // ── GET ONE ───────────────────────────────────────────────────────────
+
         [HttpGet("{id}")]
-        public ActionResult<TaskResponseDto> GetTaskById(int id)
+        public async Task<ActionResult<TaskResponseDto>> GetTaskById(int id)
         {
-            var item = _tasks.FirstOrDefault(t => t.Id == id);
-            if (item == null)
-            {
-                return NotFound();//404
-            }
-            return Ok(MapToResponseDto(item));//200
-        }
-        [HttpPost]
-        public ActionResult<TaskResponseDto> CreateTask(TaskCreateDto newTask)
-        {
-            var createTask = new TaskItem
-            {
-                CreatedAt = DateTime.UtcNow,
-                Description = newTask.Description,
-                Id = _nextId++,
-                IsCompleted = newTask.IsCompleted,
-                Title = newTask.Title,
-            };
-            _tasks.Add(createTask);
-            return CreatedAtAction(nameof(GetTaskById), new { id = createTask.Id }, MapToResponseDto(createTask));
-        }
-        [HttpPut("{id}")]
-        public ActionResult<TaskResponseDto> UpdateTask(int id, TaskCreateDto updateDto)
-        {
-            var existing = _tasks.FirstOrDefault(t => t.Id == id);
-            if (existing == null)
-            {
-                return NotFound();// 404
-            }
-            existing.Title = updateDto.Title;
-            existing.Description = updateDto.Description;
-            existing.IsCompleted = updateDto.IsCompleted;
-            return NoContent();// 204
-        }
-        [HttpPatch("{id}")]
-        public ActionResult<TaskResponseDto> PatchTask(int id, TaskPatchDto patchDto)
-        {
-            var existing = _tasks.FirstOrDefault(t => t.Id == id);
-            if (existing == null)
+            var task = await _repository.GetByIdAsync(id);
+
+            if (task == null)
             {
                 return NotFound();
             }
-            if (patchDto.Title != null)
+
+            return Ok(MapToResponseDto(task));
+        }
+
+        // ── CREATE ────────────────────────────────────────────────────────────
+
+        [HttpPost]
+        public async Task<ActionResult<TaskResponseDto>> CreateTask(TaskCreateDto createDto)
+        {
+            var newTask = new TaskItem
             {
-                existing.Title = patchDto.Title;
-            }
-            if (patchDto.Description != null)
+                Title = createDto.Title,
+                Description = createDto.Description,
+                IsCompleted = createDto.IsCompleted,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            await _repository.CreateAsync(newTask);
+            await _repository.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetTaskById), new { id = newTask.Id }, MapToResponseDto(newTask));
+        }
+
+        // ── UPDATE FULL ───────────────────────────────────────────────────────
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateTask(int id, TaskCreateDto updateDto)
+        {
+            var existingTask = await _repository.GetByIdAsync(id);
+
+            if (existingTask == null)
             {
-                existing.Description = patchDto.Description;
+                return NotFound();
             }
-            if (patchDto.IsCompleted != null)
-            {
-                existing.IsCompleted = patchDto.IsCompleted.Value;
-            }
+
+            existingTask.Title = updateDto.Title;
+            existingTask.Description = updateDto.Description;
+            existingTask.IsCompleted = updateDto.IsCompleted;
+
+            await _repository.UpdateAsync(existingTask);
+            await _repository.SaveChangesAsync();
+
             return NoContent();
         }
-        [HttpDelete("{id}")]
-        public ActionResult<TaskResponseDto> DeleteTask(int id)
+
+        // ── UPDATE PARTIAL ────────────────────────────────────────────────────
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> PatchTask(int id, TaskPatchDto patchDto)
         {
-            var existing = _tasks.FirstOrDefault(t => t.Id == id);
-            if (existing == null)
+            var existingTask = await _repository.GetByIdAsync(id);
+
+            if (existingTask == null)
             {
                 return NotFound();
             }
-            _tasks.Remove(existing);
+
+            if (patchDto.Title != null)
+            {
+                existingTask.Title = patchDto.Title;
+            }
+
+            if (patchDto.Description != null)
+            {
+                existingTask.Description = patchDto.Description;
+            }
+
+            if (patchDto.IsCompleted != null)
+            {
+                existingTask.IsCompleted = patchDto.IsCompleted.Value;
+            }
+
+            await _repository.UpdateAsync(existingTask);
+            await _repository.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        // ── DELETE ────────────────────────────────────────────────────────────
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteTask(int id)
+        {
+            var task = await _repository.GetByIdAsync(id);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            await _repository.DeleteAsync(task);
+            await _repository.SaveChangesAsync();
+
             return NoContent();
         }
     }
