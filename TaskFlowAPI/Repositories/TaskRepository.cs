@@ -18,13 +18,13 @@ namespace TaskFlowAPI.Repositories
         // Fetch all tasks from the Tasks table
         public async Task<IEnumerable<TaskItem>> GetAllAsync()
         {
-            return await _context.Tasks.ToListAsync();
+            return await _context.Tasks.Include(t=>t.Category).ToListAsync();
         }
 
         // Fetch a single task — returns null if not found
         public async Task<TaskItem?> GetByIdAsync(int id)
         {
-            return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
+            return await _context.Tasks.Include(t=>t.Category).FirstOrDefaultAsync(t => t.Id == id);
         }
 
         // Add the new task to the context (not saved yet — SaveChangesAsync does that)

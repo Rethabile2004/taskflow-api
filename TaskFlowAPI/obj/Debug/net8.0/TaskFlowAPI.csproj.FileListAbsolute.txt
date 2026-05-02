@@ -27,7 +27,6 @@ C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\De
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\swae.build.ex.cache
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\TaskFlow.27D92AF5.Up2Date
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\TaskFlowAPI.dll
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\refint\TaskFlowAPI.dll

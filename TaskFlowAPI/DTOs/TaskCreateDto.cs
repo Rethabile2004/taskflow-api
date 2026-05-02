@@ -12,5 +12,6 @@ namespace TaskFlowAPI.DTOs
         [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
         public string Description { get; set; } = string.Empty;
         public bool IsCompleted { get; set; }
+        public int? CategoryId { get; set; }
     }
 }
