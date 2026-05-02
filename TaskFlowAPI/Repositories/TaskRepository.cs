@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskFlowAPI.Data;
+using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
 
 namespace TaskFlowAPI.Repositories
 {
-    // The concrete implementation — this is the only class that touches EF Core
     public class TaskRepository : ITaskRepository
     {
         private readonly AppDbContext _context;
@@ -16,9 +16,30 @@ namespace TaskFlowAPI.Repositories
         }
 
         // Fetch all tasks from the Tasks table
-        public async Task<IEnumerable<TaskItem>> GetAllAsync()
+        public async Task<IEnumerable<TaskItem>> GetAllAsync(TaskQueryParameters queryParameters)
         {
-            return await _context.Tasks.Include(t=>t.Category).ToListAsync();
+            var query = _context.Tasks.AsQueryable();
+            if (queryParameters.IsCompleted.HasValue)
+            {
+                query = query.Where(t => t.IsCompleted == queryParameters.IsCompleted);
+            }
+            if (queryParameters.CategoryId.HasValue)
+            {
+                query = query.Where(t => t.CategoryId == queryParameters.CategoryId);
+            }
+            if (!string.IsNullOrWhiteSpace(queryParameters.SearchString))
+            {
+                query = query.Where(t => t.Title.Contains(queryParameters.SearchString));
+            }
+            query = queryParameters.SortBy?.ToLower() switch
+            {
+                "title" => query.OrderBy(t => t.Title),
+                "isCompleted" => query.OrderBy(t => t.IsCompleted),
+                "createdAt" => query.OrderByDescending(t => t.CreatedAt),
+                _ => query.OrderBy(t => t.Id)
+            };
+
+            return await query.ToListAsync();
         }
 
         // Fetch a single task — returns null if not found

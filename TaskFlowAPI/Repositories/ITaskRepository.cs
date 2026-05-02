@@ -1,4 +1,5 @@
-﻿using TaskFlowAPI.Models;
+﻿using TaskFlowAPI.DTOs;
+using TaskFlowAPI.Models;
 namespace TaskFlowAPI.Repositories
 {
     // The contract — defines what operations are available
@@ -6,7 +7,7 @@ namespace TaskFlowAPI.Repositories
     public interface ITaskRepository
     {
         // Returns all tasks from the database
-        Task<IEnumerable<TaskItem>> GetAllAsync();
+        Task<IEnumerable<TaskItem>> GetAllAsync(TaskQueryParameters parameters);
 
         // Returns a single task by id, or null if not found
         Task<TaskItem?> GetByIdAsync(int id);

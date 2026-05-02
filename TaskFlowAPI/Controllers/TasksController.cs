@@ -31,9 +31,9 @@ namespace TaskFlowAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskResponseDto>>> GetAllTasks()
+        public async Task<ActionResult<IEnumerable<TaskResponseDto>>> GetAllTasks([FromQuery]TaskQueryParameters taskQueryParameters)
         {
-            var tasks = await _repository.GetAllAsync();
+            var tasks = await _repository.GetAllAsync(taskQueryParameters);
             return Ok(tasks.Select(task => MapToResponseDto(task)));
         }
 
