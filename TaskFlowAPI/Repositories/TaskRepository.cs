@@ -16,7 +16,7 @@ namespace TaskFlowAPI.Repositories
         }
 
         // Fetch all tasks from the Tasks table
-        public async Task<IEnumerable<TaskItem>> GetAllAsync(TaskQueryParameters queryParameters)
+        public async Task<(IEnumerable<TaskItem>,int TotalCount)> GetAllAsync(TaskQueryParameters queryParameters)
         {
             var query = _context.Tasks.AsQueryable();
             if (queryParameters.IsCompleted.HasValue)
@@ -31,6 +31,8 @@ namespace TaskFlowAPI.Repositories
             {
                 query = query.Where(t => t.Title.Contains(queryParameters.SearchString));
             }
+            var totalCount = await query.CountAsync();
+
             query = queryParameters.SortBy?.ToLower() switch
             {
                 "title" => query.OrderBy(t => t.Title),
@@ -38,8 +40,10 @@ namespace TaskFlowAPI.Repositories
                 "createdAt" => query.OrderByDescending(t => t.CreatedAt),
                 _ => query.OrderBy(t => t.Id)
             };
+            // Apply pagination after sort
+            var tasks = query.Skip((queryParameters.Page-1)*queryParameters.PageSize).Take(queryParameters.PageSize).ToList();
 
-            return await query.ToListAsync();
+            return (tasks,totalCount);
         }
 
         // Fetch a single task — returns null if not found

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
 using TaskFlowAPI.Repositories;
@@ -31,10 +32,18 @@ namespace TaskFlowAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskResponseDto>>> GetAllTasks([FromQuery]TaskQueryParameters taskQueryParameters)
+        public async Task<ActionResult<IEnumerable<PagedResult< TaskResponseDto>>>> GetAllTasks([FromQuery]TaskQueryParameters taskQueryParameters)
         {
-            var tasks = await _repository.GetAllAsync(taskQueryParameters);
-            return Ok(tasks.Select(task => MapToResponseDto(task)));
+            // Destructure the tuplet returned by the repository
+            var (tasks,totalCount) = await _repository.GetAllAsync(taskQueryParameters);
+            var pagedResult = new PagedResult<TaskResponseDto>()
+            {
+                Page = taskQueryParameters.Page,
+                PageSize = taskQueryParameters.PageSize,
+                TotalCount = totalCount,
+                Data = tasks.Select(task => MapToResponseDto(task))
+            };
+            return Ok(pagedResult);
         }
 
         [HttpGet("{id}")]
