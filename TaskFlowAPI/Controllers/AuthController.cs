@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TaskFlowAPI.Data;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
+using TaskFlowAPI.Services;
 
 namespace TaskFlowAPI.Controllers
 {
@@ -11,18 +12,20 @@ namespace TaskFlowAPI.Controllers
     public class AuthController:ControllerBase
     {
         private readonly AppDbContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly ITokenService _tokenService;
         //Iconfiguration gives us access to appsettings.json values
-        public AuthController(AppDbContext context, IConfiguration configuration)
+        private readonly IConfiguration _configuration;
+        public AuthController(AppDbContext context, IConfiguration configuration,ITokenService tokenService)
         {
             _context = context;
             _configuration = configuration;
+            _tokenService=tokenService;
         }
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
         {
             // check if email already exists
-            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == registerDto.Email.ToLower());
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email.Equals(registerDto.Email, StringComparison.CurrentCultureIgnoreCase));
             if (existingUser != null)
             {
                 // 409 conflict resource already exists
@@ -40,7 +43,7 @@ namespace TaskFlowAPI.Controllers
             };
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
-            var token = GenerateJwtToken(user);
+            var token = _tokenService.GenerateToken(user);
             var expiryTime = int.Parse(_configuration["JwtSettings:ExpiryHours"]!);
             return Ok(new AuthResponseDto
             {
@@ -50,9 +53,30 @@ namespace TaskFlowAPI.Controllers
                 Token = token
             });
         }
-        public string GenerateJwtToken(User user)
+        [HttpPost("login")]
+        public async Task<ActionResult<AuthResponseDto>>Login(LoginDto loginDto)
         {
-            return "will-be-covered-in-the-next-session.";
+            // find user by email
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == loginDto.Email.ToLower());
+            if (user == null)
+            {
+                return Unauthorized(new { message = "Invalid email or password." });
+            }
+            // verify the password against the stored hash
+            var passwordValid = BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash);
+            if (!passwordValid)
+            {
+                return Unauthorized(new { message = "Invalid email or password." });
+            }
+            var token = _tokenService.GenerateToken(user);
+            var expiryHours = int.Parse(_configuration["JwtSettings:ExpiryHours"]!);
+            return Ok(new AuthResponseDto
+            {
+                Email= loginDto.Email,
+                ExpiresAt=DateTime.UtcNow.AddHours(expiryHours),
+                FullName=user.FullName,
+                Token=token
+            });
         }
     }
 }
