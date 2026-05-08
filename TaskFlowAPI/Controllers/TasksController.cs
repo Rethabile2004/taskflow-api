@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
 using TaskFlowAPI.Repositories;
@@ -8,6 +10,7 @@ namespace TaskFlowAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // every endpoint in this controller requires a valid JWT
     public class TasksController : ControllerBase
     {
         private readonly ITaskRepository _repository;
@@ -16,7 +19,10 @@ namespace TaskFlowAPI.Controllers
         {
             _repository = repository;
         }
-
+        private int CurrentUserId()
+        {
+            return int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        }
         private TaskResponseDto MapToResponseDto(TaskItem task)
         {
             return new TaskResponseDto
@@ -34,8 +40,10 @@ namespace TaskFlowAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PagedResult< TaskResponseDto>>>> GetAllTasks([FromQuery]TaskQueryParameters taskQueryParameters)
         {
+            // read the users id from their token
+            var userId = CurrentUserId();
             // Destructure the tuplet returned by the repository
-            var (tasks,totalCount) = await _repository.GetAllAsync(taskQueryParameters);
+            var (tasks,totalCount) = await _repository.GetAllAsync(taskQueryParameters, userId);
             var pagedResult = new PagedResult<TaskResponseDto>()
             {
                 Page = taskQueryParameters.Page,
@@ -49,7 +57,9 @@ namespace TaskFlowAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskResponseDto>> GetTaskById(int id)
         {
-            var task = await _repository.GetByIdAsync(id);
+            var userId = CurrentUserId();
+
+            var task = await _repository.GetByIdAsync(id, userId);
 
             if (task == null) return NotFound();
 
@@ -65,7 +75,8 @@ namespace TaskFlowAPI.Controllers
                 Description = createDto.Description,
                 IsCompleted = createDto.IsCompleted,
                 CategoryId = createDto.CategoryId,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                UserId = CurrentUserId()
             };
 
             await _repository.CreateAsync(newTask);
@@ -77,7 +88,8 @@ namespace TaskFlowAPI.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateTask(int id, TaskCreateDto updateDto)
         {
-            var existingTask = await _repository.GetByIdAsync(id);
+            var userId = CurrentUserId();
+            var existingTask = await _repository.GetByIdAsync(id, userId);
 
             if (existingTask == null) return NotFound();
 
@@ -95,7 +107,8 @@ namespace TaskFlowAPI.Controllers
         [HttpPatch("{id}")]
         public async Task<ActionResult> PatchTask(int id, TaskPatchDto patchDto)
         {
-            var existingTask = await _repository.GetByIdAsync(id);
+            var userId = CurrentUserId();
+            var existingTask = await _repository.GetByIdAsync(id, userId);
 
             if (existingTask == null) return NotFound();
 
@@ -112,7 +125,8 @@ namespace TaskFlowAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteTask(int id)
         {
-            var task = await _repository.GetByIdAsync(id);
+            var userId = CurrentUserId();
+            var task = await _repository.GetByIdAsync(id, userId);
 
             if (task == null) return NotFound();
 

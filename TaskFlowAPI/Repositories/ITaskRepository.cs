@@ -7,10 +7,12 @@ namespace TaskFlowAPI.Repositories
     public interface ITaskRepository
     {
         // Now returns a tuple, tuples allow us to return two values without a wrapper class
-        Task<(IEnumerable<TaskItem>,int TotalCount)> GetAllAsync(TaskQueryParameters parameters);
+        // user id added... reposotory filters all queries by the loggedin user
+        Task<(IEnumerable<TaskItem>,int TotalCount)> GetAllAsync(TaskQueryParameters parameters, int userId);
 
         // Returns a single task by id, or null if not found
-        Task<TaskItem?> GetByIdAsync(int id);
+        // user id... ensures that user can only fetch their own task
+        Task<TaskItem?> GetByIdAsync(int id, int userId);
 
         // Adds a new task to the database
         Task<TaskItem> CreateAsync(TaskItem task);

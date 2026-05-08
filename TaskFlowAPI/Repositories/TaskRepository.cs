@@ -16,9 +16,11 @@ namespace TaskFlowAPI.Repositories
         }
 
         // Fetch all tasks from the Tasks table
-        public async Task<(IEnumerable<TaskItem>,int TotalCount)> GetAllAsync(TaskQueryParameters queryParameters)
+        public async Task<(IEnumerable<TaskItem>,int TotalCount)> GetAllAsync(TaskQueryParameters queryParameters, int userId)
         {
             var query = _context.Tasks.AsQueryable();
+            // users never see each others tasks
+            query= query.Where(t => t.UserId == userId);
             if (queryParameters.IsCompleted.HasValue)
             {
                 query = query.Where(t => t.IsCompleted == queryParameters.IsCompleted);
@@ -47,9 +49,9 @@ namespace TaskFlowAPI.Repositories
         }
 
         // Fetch a single task — returns null if not found
-        public async Task<TaskItem?> GetByIdAsync(int id)
+        public async Task<TaskItem?> GetByIdAsync(int id, int userId)
         {
-            return await _context.Tasks.Include(t=>t.Category).FirstOrDefaultAsync(t => t.Id == id);
+            return await _context.Tasks.Include(t=>t.Category).FirstOrDefaultAsync(t => t.Id == id && t.UserId==userId);
         }
 
         // Add the new task to the context (not saved yet — SaveChangesAsync does that)
