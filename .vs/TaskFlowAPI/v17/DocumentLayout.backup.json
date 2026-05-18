@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\exceptions\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\exceptions\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,54 +39,75 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TasksController.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\TasksController.cs",
-              "RelativeDocumentMoniker": "TaskFlowAPI\\Controllers\\TasksController.cs",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\TasksController.cs",
-              "RelativeToolTip": "TaskFlowAPI\\Controllers\\TasksController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAwFAAAAAAAAAAAAAAAA==",
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:31:38.286Z",
+              "WhenOpened": "2026-05-16T14:10:14.652Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TaskRepository.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\TaskRepository.cs",
-              "RelativeDocumentMoniker": "TaskFlowAPI\\Repositories\\TaskRepository.cs",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\TaskRepository.cs*",
-              "RelativeToolTip": "TaskFlowAPI\\Repositories\\TaskRepository.cs*",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwDUAAAB3AAAAAAAAAA==",
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:27:58.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-16T14:05:45.802Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ITaskRepository.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\ITaskRepository.cs",
-              "RelativeDocumentMoniker": "TaskFlowAPI\\Repositories\\ITaskRepository.cs",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\ITaskRepository.cs*",
-              "RelativeToolTip": "TaskFlowAPI\\Repositories\\ITaskRepository.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:25:42.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T11:31:38.286Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "TaskRepository.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\TaskRepository.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Repositories\\TaskRepository.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\TaskRepository.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Repositories\\TaskRepository.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwDUAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T11:27:58.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ITaskRepository.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\ITaskRepository.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Repositories\\ITaskRepository.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\ITaskRepository.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Repositories\\ITaskRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T11:25:42.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "TaskItem.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Models\\TaskItem.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Models\\TaskItem.cs",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Models\\TaskItem.cs*",
-              "RelativeToolTip": "TaskFlowAPI\\Models\\TaskItem.cs*",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Models\\TaskItem.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Models\\TaskItem.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAQwBEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:24:34.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T11:24:34.148Z"
             }
           ]
         }

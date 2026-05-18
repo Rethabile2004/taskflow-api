@@ -1,42 +1,52 @@
+﻿using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using TaskFlowAPI.Data;
+using TaskFlowAPI.Middleware;
 using TaskFlowAPI.Repositories;
 using TaskFlowAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ── Register Services ─────────────────────────────────────────────────────────
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// Register AppDbContext with SqlServer
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-// Register the repository � when a class asks for ITaskRepository, give it TaskRepository
-// Scoped means one instance per HTTP request
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
-        // validate that the token is issued by our server
-        ValidateIssuer=true,
-        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-        // validate that  the token is intended for our api
-        ValidateAudience=true,
-        ValidAudience = builder.Configuration["JwtSettings:Audience"],
-        // validate the secret key signature
-        ValidateIssuerSigningKey=true,
-        IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]!)),
-        // validate that the token has not expired
-        ValidateLifetime=true,
-        // token expires exactly when it says
-        ClockSkew=TimeSpan.Zero
-    };
-});
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["JwtSettings:Audience"],
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]!)),
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
+// ── Build the App ─────────────────────────────────────────────────────────────
+
 var app = builder.Build();
+
+// ── Configure Middleware ──────────────────────────────────────────────────────
+
+// Exception middleware must be FIRST — it wraps everything else
+// If it's not first, exceptions in other middleware won't be caught
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
