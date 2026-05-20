@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\exceptions\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\exceptions\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,19 +43,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ExceptionMiddleware.cs",
-              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
-              "RelativeDocumentMoniker": "TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
-              "RelativeToolTip": "TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Program.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Program.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T14:10:14.652Z",
+              "WhenOpened": "2026-05-18T17:20:10.07Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Exceptions\\ExceptionMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T14:10:14.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "NotFoundException.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Exceptions\\NotFoundException.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Exceptions\\NotFoundException.cs",
@@ -63,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TasksController.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\TasksController.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Controllers\\TasksController.cs",
@@ -75,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TaskRepository.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\TaskRepository.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Repositories\\TaskRepository.cs",
@@ -87,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ITaskRepository.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Repositories\\ITaskRepository.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Repositories\\ITaskRepository.cs",
@@ -99,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TaskItem.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Models\\TaskItem.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Models\\TaskItem.cs",

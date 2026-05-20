@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using TaskFlowAPI.Data;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
@@ -9,73 +10,115 @@ namespace TaskFlowAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController:ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly AppDbContext _context;
         private readonly ITokenService _tokenService;
-        //Iconfiguration gives us access to appsettings.json values
         private readonly IConfiguration _configuration;
-        public AuthController(AppDbContext context, IConfiguration configuration,ITokenService tokenService)
+        private readonly ILogger<AuthController> _logger;
+
+        public AuthController(
+            AppDbContext context,
+            ITokenService tokenService,
+            IConfiguration configuration,
+            ILogger<AuthController> logger)
         {
             _context = context;
+            _tokenService = tokenService;
             _configuration = configuration;
-            _tokenService=tokenService;
+            _logger = logger;
         }
+
+        // POST api/auth/register
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
         {
-            // check if email already exists
-            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email.Equals(registerDto.Email, StringComparison.CurrentCultureIgnoreCase));
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == registerDto.Email.ToLower());
+
             if (existingUser != null)
             {
-                // 409 conflict resource already exists
-                return Conflict(new { message = "Account with this email already exists." });
+                // Warning — not an error, just a duplicate attempt
+                _logger.LogWarning(
+                    "Registration attempt with already existing email: {Email}",
+                    registerDto.Email);
+
+                return Conflict(new { message = "An account with this email already exists." });
             }
-            // hash the password -  Bcrypt handles the salt automatically
+
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password);
-            // create the new user
-            var user = new User
+
+            var newUser = new User
             {
                 FullName = registerDto.FullName,
-                CreatedAt = DateTime.UtcNow,
                 Email = registerDto.Email.ToLower(),
                 PasswordHash = passwordHash,
+                CreatedAt = DateTime.UtcNow
             };
-            await _context.Users.AddAsync(user);
+
+            await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
-            var token = _tokenService.GenerateToken(user);
-            var expiryTime = int.Parse(_configuration["JwtSettings:ExpiryHours"]!);
+
+            // Information — normal successful event worth recording
+            _logger.LogInformation(
+                "New user registered: {Email} (UserId: {UserId})",
+                newUser.Email,
+                newUser.Id);
+
+            var token = _tokenService.GenerateToken(newUser);
+            var expiryHours = int.Parse(_configuration["JwtSettings:ExpiryHours"]!);
+
             return Ok(new AuthResponseDto
             {
-                Email = registerDto.Email,
-                ExpiresAt = DateTime.UtcNow.AddHours(expiryTime),
-                FullName = registerDto.FullName,
-                Token = token
+                Token = token,
+                ExpiresAt = DateTime.UtcNow.AddHours(expiryHours),
+                FullName = newUser.FullName,
+                Email = newUser.Email
             });
         }
+
+        // POST api/auth/login
         [HttpPost("login")]
-        public async Task<ActionResult<AuthResponseDto>>Login(LoginDto loginDto)
+        public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
         {
-            // find user by email
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == loginDto.Email.ToLower());
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == loginDto.Email.ToLower());
+
             if (user == null)
             {
+                // Warning — failed login attempt worth tracking
+                _logger.LogWarning(
+                    "Failed login attempt — email not found: {Email}",
+                    loginDto.Email);
+
                 return Unauthorized(new { message = "Invalid email or password." });
             }
-            // verify the password against the stored hash
+
             var passwordValid = BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash);
+
             if (!passwordValid)
             {
+                _logger.LogWarning(
+                    "Failed login attempt — wrong password for: {Email}",
+                    loginDto.Email);
+
                 return Unauthorized(new { message = "Invalid email or password." });
             }
+
+            _logger.LogInformation(
+                "User logged in: {Email} (UserId: {UserId})",
+                user.Email,
+                user.Id);
+
             var token = _tokenService.GenerateToken(user);
             var expiryHours = int.Parse(_configuration["JwtSettings:ExpiryHours"]!);
+
             return Ok(new AuthResponseDto
             {
-                Email= loginDto.Email,
-                ExpiresAt=DateTime.UtcNow.AddHours(expiryHours),
-                FullName=user.FullName,
-                Token=token
+                Token = token,
+                ExpiresAt = DateTime.UtcNow.AddHours(expiryHours),
+                FullName = user.FullName,
+                Email = user.Email
             });
         }
     }
