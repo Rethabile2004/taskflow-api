@@ -16,11 +16,11 @@ namespace TaskFlowAPI.Repositories
         }
 
         // Fetch all tasks from the Tasks table
-        public async Task<(IEnumerable<TaskItem>,int TotalCount)> GetAllAsync(TaskQueryParameters queryParameters, int userId)
+        public async Task<(IEnumerable<TaskItem>, int TotalCount)> GetAllAsync(TaskQueryParameters queryParameters, int userId)
         {
-            var query = _context.Tasks.AsQueryable();
+            var query = _context.Tasks.Include(c => c.Category).AsQueryable();
             // users never see each others tasks
-            query= query.Where(t => t.UserId == userId);
+            query = query.Where(t => t.UserId == userId);
             if (queryParameters.IsCompleted.HasValue)
             {
                 query = query.Where(t => t.IsCompleted == queryParameters.IsCompleted);
@@ -38,20 +38,20 @@ namespace TaskFlowAPI.Repositories
             query = queryParameters.SortBy?.ToLower() switch
             {
                 "title" => query.OrderBy(t => t.Title),
-                "isCompleted" => query.OrderBy(t => t.IsCompleted),
-                "createdAt" => query.OrderByDescending(t => t.CreatedAt),
+                "iscompleted" => query.OrderBy(t => t.IsCompleted),
+                "createdat" => query.OrderByDescending(t => t.CreatedAt),
                 _ => query.OrderBy(t => t.Id)
             };
             // Apply pagination after sort
-            var tasks = query.Skip((queryParameters.Page-1)*queryParameters.PageSize).Take(queryParameters.PageSize).ToList();
+            var tasks = query.Skip((queryParameters.Page - 1) * queryParameters.PageSize).Take(queryParameters.PageSize).ToList();
 
-            return (tasks,totalCount);
+            return (tasks, totalCount);
         }
 
         // Fetch a single task — returns null if not found
         public async Task<TaskItem?> GetByIdAsync(int id, int userId)
         {
-            return await _context.Tasks.Include(t=>t.Category).FirstOrDefaultAsync(t => t.Id == id && t.UserId==userId);
+            return await _context.Tasks.Include(t => t.Category).FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
         }
 
         // Add the new task to the context (not saved yet — SaveChangesAsync does that)

@@ -12,8 +12,8 @@ using TaskFlowAPI.Data;
 namespace TaskFlowAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260502094923_AddedCategoryEntity")]
-    partial class AddedCategoryEntity
+    [Migration("20260531135739_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,11 +70,49 @@ namespace TaskFlowAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("TaskFlowAPI.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("TaskFlowAPI.Models.TaskItem", b =>
@@ -83,10 +121,21 @@ namespace TaskFlowAPI.Migrations
                         .WithMany("Tasks")
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("TaskFlowAPI.Models.User", "User")
+                        .WithMany("Tasks")
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TaskFlowAPI.Models.Category", b =>
+                {
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("TaskFlowAPI.Models.User", b =>
                 {
                     b.Navigation("Tasks");
                 });

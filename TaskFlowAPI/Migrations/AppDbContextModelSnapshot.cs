@@ -118,11 +118,13 @@ namespace TaskFlowAPI.Migrations
                         .WithMany("Tasks")
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("TaskFlowAPI.Models.User", null)
+                    b.HasOne("TaskFlowAPI.Models.User", "User")
                         .WithMany("Tasks")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TaskFlowAPI.Models.Category", b =>
