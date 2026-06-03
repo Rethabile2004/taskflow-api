@@ -1,6 +1,6 @@
 # TaskFlow API
 
-A task management REST API built with ASP.NET Core Web API, developed as a progressive learning project covering core Web API concepts from CRUD operations to JWT authentication and structured logging.
+A task management REST API built with ASP.NET Core Web API, developed as a progressive learning project covering core Web API concepts from CRUD operations to JWT authentication, structured logging, and API versioning.
 
 ---
 
@@ -11,6 +11,7 @@ A task management REST API built with ASP.NET Core Web API, developed as a progr
 - **Authentication:** JWT Bearer Tokens
 - **Logging:** Serilog (console + file sinks)
 - **ORM:** Entity Framework Core 8
+- **Versioning:** Asp.Versioning.Mvc
 
 ---
 
@@ -27,6 +28,7 @@ A task management REST API built with ASP.NET Core Web API, developed as a progr
 - Global exception handling — consistent ProblemDetails responses
 - Structured logging — every request and auth event logged with Serilog
 - Data validation — enforced via Data Annotations on request DTOs
+- API versioning — URL segment strategy (`/api/v1/`) with version reporting headers
 
 ---
 
@@ -53,37 +55,37 @@ TaskFlowAPI/
 ### Auth
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
-| POST | `/api/auth/register` | Public | Create a new account |
-| POST | `/api/auth/login` | Public | Login and receive a JWT |
+| POST | `/api/v1/auth/register` | Public | Create a new account |
+| POST | `/api/v1/auth/login` | Public | Login and receive a JWT |
 
 ### Tasks
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
-| GET | `/api/tasks` | Protected | Get all tasks (paginated, filterable) |
-| GET | `/api/tasks/{id}` | Protected | Get a single task |
-| POST | `/api/tasks` | Protected | Create a new task |
-| PUT | `/api/tasks/{id}` | Protected | Replace a task |
-| PATCH | `/api/tasks/{id}` | Protected | Partially update a task |
-| DELETE | `/api/tasks/{id}` | Protected | Delete a task |
+| GET | `/api/v1/tasks` | Protected | Get all tasks (paginated, filterable) |
+| GET | `/api/v1/tasks/{id}` | Protected | Get a single task |
+| POST | `/api/v1/tasks` | Protected | Create a new task |
+| PUT | `/api/v1/tasks/{id}` | Protected | Replace a task |
+| PATCH | `/api/v1/tasks/{id}` | Protected | Partially update a task |
+| DELETE | `/api/v1/tasks/{id}` | Protected | Delete a task |
 
 ### Categories
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
-| GET | `/api/categories` | Public | Get all categories |
-| GET | `/api/categories/{id}` | Public | Get a single category |
-| POST | `/api/categories` | Public | Create a category |
+| GET | `/api/v1/categories` | Public | Get all categories |
+| GET | `/api/v1/categories/{id}` | Public | Get a single category |
+| POST | `/api/v1/categories` | Public | Create a category |
 
 ---
 
 ## Query Parameters
 
 ```
-GET /api/tasks?isCompleted=false
-GET /api/tasks?categoryId=1
-GET /api/tasks?searchTitle=study
-GET /api/tasks?sortBy=title
-GET /api/tasks?page=2&pageSize=10
-GET /api/tasks?isCompleted=false&categoryId=1&sortBy=title&page=1&pageSize=5
+GET /api/v1/tasks?isCompleted=false
+GET /api/v1/tasks?categoryId=1
+GET /api/v1/tasks?searchTitle=study
+GET /api/v1/tasks?sortBy=title
+GET /api/v1/tasks?page=2&pageSize=10
+GET /api/v1/tasks?isCompleted=false&categoryId=1&sortBy=title&page=1&pageSize=5
 ```
 
 ---
@@ -131,13 +133,31 @@ https://localhost:{port}/swagger
 
 All task endpoints require a valid JWT. To authenticate:
 
-1. Register via `POST /api/auth/register`
+1. Register via `POST /api/v1/auth/register`
 2. Copy the token from the response
 3. Add it to your requests as a Bearer token:
 
 ```
 Authorization: Bearer <your-token>
 ```
+
+---
+
+## API Versioning
+
+TaskFlow uses **URL segment versioning**. The current version is `v1`:
+
+```
+GET /api/v1/tasks
+POST /api/v1/auth/login
+```
+
+Responses include a header indicating all supported versions:
+```
+api-supported-versions: 1.0
+```
+
+When a new version introduces breaking changes, the old version remains available so existing clients are unaffected. Non-breaking additions (new optional fields, new endpoints) are added to the current version without a version bump.
 
 ---
 
@@ -170,6 +190,7 @@ This project was built session by session as a structured learning exercise cove
 - How JWT authentication works end to end — from token generation to claim extraction
 - Global error handling with middleware and ProblemDetails
 - Structured logging with Serilog
+- API versioning — why it's a contract with consumers and how to implement URL segment versioning with `Asp.Versioning.Mvc`
 
 ---
 
