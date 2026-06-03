@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -45,11 +46,32 @@ try
         // Suppress noisy ASP.NET framework logs below Warning
         .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
         .MinimumLevel.Override("Microsoft.Hosting.Lifetime", Serilog.Events.LogEventLevel.Information));
-
-    // Register Services
-
+    
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddApiVersioning(options =>
+    {
+        // Default version when none is specified
+        options.DefaultApiVersion = new ApiVersion(1, 0);
+
+        // Assume default version when client doesn't specify one
+        options.AssumeDefaultVersionWhenUnspecified = true;
+
+        // Include supported versions in response headers
+        // Client sees: api-supported-versions: 1.0
+        options.ReportApiVersions = true;
+
+        // Read version from URL segment e.g. /api/v1/tasks
+        options.ApiVersionReader = new UrlSegmentApiVersionReader();
+    })
+    .AddApiExplorer(options =>
+    {
+        // Format version as 'v{major}' in the URL
+        options.GroupNameFormat = "'v'VVV";
+
+        // Substitute the version in the route template automatically
+        options.SubstituteApiVersionInUrl = true;
+    });
     builder.Services.AddSwaggerGen();
 
     builder.Services.AddDbContext<AppDbContext>(options =>
@@ -57,6 +79,16 @@ try
 
     builder.Services.AddScoped<ITaskRepository, TaskRepository>();
     builder.Services.AddScoped<ITokenService, TokenService>();
+
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("ReactAppPolicy", policy =>
+        {
+            policy.WithOrigins("http://localhost:5173") 
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+    });
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>

@@ -2,7 +2,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/login",
+    "RelativePath": "api/v1/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -28,7 +28,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Auth/register",
+    "RelativePath": "api/v1/Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -54,7 +54,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.CategoriesController",
     "Method": "GetAllCategories",
-    "RelativePath": "api/Categories",
+    "RelativePath": "api/v1/Categories",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -74,7 +74,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.CategoriesController",
     "Method": "CreateCategory",
-    "RelativePath": "api/Categories",
+    "RelativePath": "api/v1/Categories",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -100,7 +100,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.CategoriesController",
     "Method": "GetCategoryById",
-    "RelativePath": "api/Categories/{id}",
+    "RelativePath": "api/v1/Categories/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -126,7 +126,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "GetAllTasks",
-    "RelativePath": "api/Tasks",
+    "RelativePath": "api/v1/Tasks",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -177,7 +177,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "CreateTask",
-    "RelativePath": "api/Tasks",
+    "RelativePath": "api/v1/Tasks",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -203,7 +203,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "GetTaskById",
-    "RelativePath": "api/Tasks/{id}",
+    "RelativePath": "api/v1/Tasks/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -229,7 +229,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "UpdateTask",
-    "RelativePath": "api/Tasks/{id}",
+    "RelativePath": "api/v1/Tasks/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -250,7 +250,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "PatchTask",
-    "RelativePath": "api/Tasks/{id}",
+    "RelativePath": "api/v1/Tasks/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -271,7 +271,7 @@
   {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "DeleteTask",
-    "RelativePath": "api/Tasks/{id}",
+    "RelativePath": "api/v1/Tasks/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Auth/register": {
+    "/api/v1/Auth/register": {
       "post": {
         "tags": [
           "Auth"
@@ -53,7 +53,7 @@
         }
       }
     },
-    "/api/Auth/login": {
+    "/api/v1/Auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -101,7 +101,7 @@
         }
       }
     },
-    "/api/Categories": {
+    "/api/v1/Categories": {
       "get": {
         "tags": [
           "Categories"
@@ -185,7 +185,7 @@
         }
       }
     },
-    "/api/Categories/{id}": {
+    "/api/v1/Categories/{id}": {
       "get": {
         "tags": [
           "Categories"
@@ -225,7 +225,7 @@
         }
       }
     },
-    "/api/Tasks": {
+    "/api/v1/Tasks": {
       "get": {
         "tags": [
           "Tasks"
@@ -356,7 +356,7 @@
         }
       }
     },
-    "/api/Tasks/{id}": {
+    "/api/v1/Tasks/{id}": {
       "get": {
         "tags": [
           "Tasks"

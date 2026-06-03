@@ -1,0 +1,33 @@
+2026-06-03 17:52:42.138 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-03 17:52:42.519 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 17:52:42.532 +02:00 [INF] Hosting environment: Development
+2026-06-03 17:52:42.534 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-03 17:52:56.297 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 3002.8491 ms
+2026-06-03 17:52:58.228 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 419.5342 ms
+2026-06-03 17:58:54.186 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-03 17:58:54.337 +02:00 [INF] HTTP POST /api/auth/register responded 404 in 156.6282 ms
+2026-06-03 17:59:19.080 +02:00 [INF] New user registered: user@mail.com (UserId: 1)
+2026-06-03 17:59:19.147 +02:00 [INF] HTTP POST /api/v1/auth/register responded 200 in 6365.9241 ms
+2026-06-03 17:59:22.783 +02:00 [INF] HTTP POST /api/auth/register responded 404 in 9.5659 ms
+2026-06-03 17:59:28.316 +02:00 [INF] HTTP POST /api/auth/register responded 404 in 0.5979 ms
+2026-06-03 18:00:22.157 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-03 18:00:22.513 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 18:00:22.708 +02:00 [INF] Hosting environment: Development
+2026-06-03 18:00:22.760 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-03 18:00:23.114 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 367.6782 ms
+2026-06-03 18:00:24.197 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 22.9628 ms
+2026-06-03 18:00:34.142 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-03 18:00:34.330 +02:00 [INF] HTTP POST /api/auth/register responded 404 in 200.9497 ms
+2026-06-03 18:02:44.278 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-03 18:02:45.463 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 18:02:45.493 +02:00 [INF] Hosting environment: Development
+2026-06-03 18:02:45.497 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 215.6728 ms
+2026-06-03 18:02:45.507 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-03 18:02:47.190 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 23.4185 ms
+2026-06-03 18:02:55.317 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-03 18:02:55.426 +02:00 [INF] HTTP POST /api/auth/register responded 404 in 113.3268 ms
+2026-06-03 18:03:13.310 +02:00 [INF] New user registered: user5@mail.com (UserId: 2)
+2026-06-03 18:03:13.354 +02:00 [INF] HTTP POST /api/v1/auth/register responded 200 in 3371.9587 ms
+2026-06-03 18:04:15.627 +02:00 [WRN] Registration attempt with already existing email: user5@mail.com
+2026-06-03 18:04:15.643 +02:00 [INF] HTTP POST /api/v1/auth/register responded 409 in 75.6871 ms
+2026-06-03 18:04:33.445 +02:00 [INF] HTTP POST /api/auth/register responded 404 in 0.5374 ms

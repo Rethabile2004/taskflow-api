@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
@@ -9,7 +9,8 @@ using TaskFlowAPI.Repositories;
 namespace TaskFlowAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize] // every endpoint in this controller requires a valid JWT
     public class TasksController : ControllerBase
     {

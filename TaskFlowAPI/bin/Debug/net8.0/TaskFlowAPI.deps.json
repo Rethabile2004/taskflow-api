@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v8.0": {
       "TaskFlowAPI/1.0.0": {
         "dependencies": {
+          "Asp.Versioning.Mvc": "8.0.0",
+          "Asp.Versioning.Mvc.ApiExplorer": "8.0.0",
           "BCrypt.Net-Next": "4.1.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.24",
@@ -19,6 +21,50 @@
         },
         "runtime": {
           "TaskFlowAPI.dll": {}
+        }
+      },
+      "Asp.Versioning.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Asp.Versioning.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.8742.36015"
+          }
+        }
+      },
+      "Asp.Versioning.Http/8.0.0": {
+        "dependencies": {
+          "Asp.Versioning.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Asp.Versioning.Http.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.8742.36024"
+          }
+        }
+      },
+      "Asp.Versioning.Mvc/8.0.0": {
+        "dependencies": {
+          "Asp.Versioning.Http": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Asp.Versioning.Mvc.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.8742.36024"
+          }
+        }
+      },
+      "Asp.Versioning.Mvc.ApiExplorer/8.0.0": {
+        "dependencies": {
+          "Asp.Versioning.Mvc": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Asp.Versioning.Mvc.ApiExplorer.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.8742.36042"
+          }
         }
       },
       "Azure.Core/1.25.0": {
@@ -1167,6 +1213,34 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Asp.Versioning.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YkuUcrqi862hw/p8dKCsfOQ6y2mWTfjKHuQoFUA9GOaoBGZsu/FzsoBm6z28WkQIlXCZR1SG7safgHj2WCO/lw==",
+      "path": "asp.versioning.abstractions/8.0.0",
+      "hashPath": "asp.versioning.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Asp.Versioning.Http/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pxHp26pXoCCIFUxFZz4UWPuYDFJ3PB0QpTpC4QRoLhu90eE3FBs0zmDeRO6Sb3y6hMnk6efdQHGbyCzd7XQIrA==",
+      "path": "asp.versioning.http/8.0.0",
+      "hashPath": "asp.versioning.http.8.0.0.nupkg.sha512"
+    },
+    "Asp.Versioning.Mvc/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zxuA7J6HewdjFF/9Cfb6VWovBTj3MdmLg6PztInratlXGpJ+BZjQzoT8FEMOurzmCxbEFPlQmeMW7b1iJKfsdg==",
+      "path": "asp.versioning.mvc/8.0.0",
+      "hashPath": "asp.versioning.mvc.8.0.0.nupkg.sha512"
+    },
+    "Asp.Versioning.Mvc.ApiExplorer/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jrNwSdQ/FNGbwnb6SpNRuAZpJ5qrlSrEwOWaXFLc8vCC14bo/2ihwJ3IJWRbSnijLUyB9j9eKFVcVi1l8ShzZw==",
+      "path": "asp.versioning.mvc.apiexplorer/8.0.0",
+      "hashPath": "asp.versioning.mvc.apiexplorer.8.0.0.nupkg.sha512"
     },
     "Azure.Core/1.25.0": {
       "type": "package",
