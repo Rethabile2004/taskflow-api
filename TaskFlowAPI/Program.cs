@@ -1,9 +1,10 @@
-﻿using System.Text;
-using Asp.Versioning;
+﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Text;
 using TaskFlowAPI.Data;
 using TaskFlowAPI.Middleware;
 using TaskFlowAPI.Repositories;
@@ -88,6 +89,59 @@ try
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
+    });
+
+    builder.Services.AddSwaggerGen(options =>
+    {
+        // Create a separate Swagger doc for each API version
+        options.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "TaskFlow API",
+            Version = "v1",
+            Description = "A task management REST API with JWT authentication, " +
+                          "pagination, filtering, and user-scoped data.",
+            Contact = new OpenApiContact
+            {
+                Name = "Rethabile Eric Siase",
+                Url = new Uri("https://github.com/Rethabile2004")
+            }
+        });
+
+        // Define the JWT Bearer security scheme
+        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            // What it is
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            Scheme = "Bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+
+            // Instructions shown in Swagger UI
+            Description = "Enter your JWT token. Example: eyJhbGci..."
+        });
+
+        // Apply the security requirement globally
+        // Every endpoint shows the padlock — protected ones require the token
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                Array.Empty<string>()
+            }
+        });
+
+        // Include XML comments in Swagger UI
+        var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+        options.IncludeXmlComments(xmlPath);
     });
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -8,6 +8,9 @@ using TaskFlowAPI.Services;
 
 namespace TaskFlowAPI.Controllers
 {
+    /// <summary>
+    /// Handles user authentication including registration and login.
+    /// </summary>
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
@@ -30,7 +33,9 @@ namespace TaskFlowAPI.Controllers
             _logger = logger;
         }
 
-        // POST api/auth/register
+        /// <summary>
+        /// Registers a new user account and returns a JWT token on success.
+        /// </summary>
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
         {
@@ -39,7 +44,6 @@ namespace TaskFlowAPI.Controllers
 
             if (existingUser != null)
             {
-                // Warning — not an error, just a duplicate attempt
                 _logger.LogWarning(
                     "Registration attempt with already existing email: {Email}",
                     registerDto.Email);
@@ -60,7 +64,6 @@ namespace TaskFlowAPI.Controllers
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
 
-            // Information — normal successful event worth recording
             _logger.LogInformation(
                 "New user registered: {Email} (UserId: {UserId})",
                 newUser.Email,
@@ -78,7 +81,9 @@ namespace TaskFlowAPI.Controllers
             });
         }
 
-        // POST api/auth/login
+        /// <summary>
+        /// Authenticates an existing user and returns a JWT token on success.
+        /// </summary>
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
         {
@@ -87,7 +92,6 @@ namespace TaskFlowAPI.Controllers
 
             if (user == null)
             {
-                // Warning — failed login attempt worth tracking
                 _logger.LogWarning(
                     "Failed login attempt — email not found: {Email}",
                     loginDto.Email);

@@ -1,17 +1,20 @@
-﻿using Asp.Versioning;
+﻿using System.Security.Claims;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
 using TaskFlowAPI.Repositories;
 
 namespace TaskFlowAPI.Controllers
 {
+    /// <summary>
+    /// Manages tasks for the authenticated user.
+    /// </summary>
     [ApiController]
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [Authorize] // every endpoint in this controller requires a valid JWT
     public class TasksController : ControllerBase
     {
         private readonly ITaskRepository _repository;
@@ -20,10 +23,12 @@ namespace TaskFlowAPI.Controllers
         {
             _repository = repository;
         }
-        private int CurrentUserId()
+
+        private int GetCurrentUserId()
         {
             return int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
         }
+
         private TaskResponseDto MapToResponseDto(TaskItem task)
         {
             return new TaskResponseDto
@@ -38,28 +43,34 @@ namespace TaskFlowAPI.Controllers
             };
         }
 
+        /// <summary>
+        /// Returns a paginated, filterable list of tasks for the authenticated user.
+        /// </summary>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PagedResult< TaskResponseDto>>>> GetAllTasks([FromQuery]TaskQueryParameters taskQueryParameters)
+        public async Task<ActionResult<PagedResult<TaskResponseDto>>> GetAllTasks(
+            [FromQuery] TaskQueryParameters queryParams)
         {
-            // read the users id from their token
-            var userId = CurrentUserId();
-            // Destructure the tuplet returned by the repository
-            var (tasks,totalCount) = await _repository.GetAllAsync(taskQueryParameters, userId);
-            var pagedResult = new PagedResult<TaskResponseDto>()
+            var userId = GetCurrentUserId();
+            var (tasks, totalCount) = await _repository.GetAllAsync(queryParams, userId);
+
+            var pagedResult = new PagedResult<TaskResponseDto>
             {
-                Page = taskQueryParameters.Page,
-                PageSize = taskQueryParameters.PageSize,
+                Page = queryParams.Page,
+                PageSize = queryParams.PageSize,
                 TotalCount = totalCount,
                 Data = tasks.Select(task => MapToResponseDto(task))
             };
+
             return Ok(pagedResult);
         }
 
+        /// <summary>
+        /// Returns a single task by id. Only accessible by the task owner.
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskResponseDto>> GetTaskById(int id)
         {
-            var userId = CurrentUserId();
-
+            var userId = GetCurrentUserId();
             var task = await _repository.GetByIdAsync(id, userId);
 
             if (task == null) return NotFound();
@@ -67,9 +78,14 @@ namespace TaskFlowAPI.Controllers
             return Ok(MapToResponseDto(task));
         }
 
+        /// <summary>
+        /// Creates a new task for the authenticated user.
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<TaskResponseDto>> CreateTask(TaskCreateDto createDto)
         {
+            var userId = GetCurrentUserId();
+
             var newTask = new TaskItem
             {
                 Title = createDto.Title,
@@ -77,19 +93,23 @@ namespace TaskFlowAPI.Controllers
                 IsCompleted = createDto.IsCompleted,
                 CategoryId = createDto.CategoryId,
                 CreatedAt = DateTime.UtcNow,
-                UserId = CurrentUserId()
+                UserId = userId
             };
 
             await _repository.CreateAsync(newTask);
             await _repository.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetTaskById), new { id = newTask.Id }, MapToResponseDto(newTask));
+            var createdTask = await _repository.GetByIdAsync(newTask.Id, userId);
+            return CreatedAtAction(nameof(GetTaskById), new { id = newTask.Id }, MapToResponseDto(createdTask!));
         }
 
+        /// <summary>
+        /// Replaces an existing task entirely. Only accessible by the task owner.
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateTask(int id, TaskCreateDto updateDto)
         {
-            var userId = CurrentUserId();
+            var userId = GetCurrentUserId();
             var existingTask = await _repository.GetByIdAsync(id, userId);
 
             if (existingTask == null) return NotFound();
@@ -105,10 +125,13 @@ namespace TaskFlowAPI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Partially updates a task. Only provided fields are updated.
+        /// </summary>
         [HttpPatch("{id}")]
         public async Task<ActionResult> PatchTask(int id, TaskPatchDto patchDto)
         {
-            var userId = CurrentUserId();
+            var userId = GetCurrentUserId();
             var existingTask = await _repository.GetByIdAsync(id, userId);
 
             if (existingTask == null) return NotFound();
@@ -116,6 +139,7 @@ namespace TaskFlowAPI.Controllers
             if (patchDto.Title != null) existingTask.Title = patchDto.Title;
             if (patchDto.Description != null) existingTask.Description = patchDto.Description;
             if (patchDto.IsCompleted != null) existingTask.IsCompleted = patchDto.IsCompleted.Value;
+            if (patchDto.CategoryId != null) existingTask.CategoryId = patchDto.CategoryId.Value;
 
             await _repository.UpdateAsync(existingTask);
             await _repository.SaveChangesAsync();
@@ -123,10 +147,13 @@ namespace TaskFlowAPI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes a task. Only accessible by the task owner.
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteTask(int id)
         {
-            var userId = CurrentUserId();
+            var userId = GetCurrentUserId();
             var task = await _repository.GetByIdAsync(id, userId);
 
             if (task == null) return NotFound();

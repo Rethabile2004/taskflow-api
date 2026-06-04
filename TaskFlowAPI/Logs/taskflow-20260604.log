@@ -1,0 +1,239 @@
+2026-06-04 19:32:54.930 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 19:32:55.193 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 19:32:55.322 +02:00 [INF] Hosting environment: Development
+2026-06-04 19:32:55.777 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 19:32:59.160 +02:00 [WRN] As of ""2026-06-04T17:32:59.1529479+00:00"", the heartbeat has been running for ""00:00:01.0290952"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.
+2026-06-04 19:33:02.670 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-04 19:33:03.023 +02:00 [INF] HTTP GET /swagger/index.html responded 404 in 340.7385 ms
+2026-06-04 19:33:32.058 +02:00 [INF] HTTP GET /swagger/index.html responded 404 in 5.5619 ms
+2026-06-04 19:33:57.351 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 19:33:57.792 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 19:33:58.088 +02:00 [INF] Hosting environment: Development
+2026-06-04 19:33:58.092 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 19:34:10.667 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 579.5419 ms
+2026-06-04 19:34:12.075 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 128.7888 ms
+2026-06-04 19:34:43.746 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 19:34:44.131 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 19:34:44.305 +02:00 [INF] Hosting environment: Development
+2026-06-04 19:34:44.306 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 19:34:44.687 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-04 19:34:44.723 +02:00 [INF] HTTP GET /swagger/index.html responded 404 in 46.0015 ms
+2026-06-04 19:35:08.713 +02:00 [INF] HTTP GET /swagger/ responded 404 in 17.0225 ms
+2026-06-04 19:37:11.860 +02:00 [INF] HTTP GET /swagger/index.html responded 404 in 3.3505 ms
+2026-06-04 19:39:02.777 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 19:39:03.126 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 19:39:03.893 +02:00 [INF] Hosting environment: Development
+2026-06-04 19:39:03.899 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 19:39:11.586 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 875.9035 ms
+2026-06-04 19:39:12.622 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 130.2486 ms
+2026-06-04 19:40:30.134 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-04 19:40:37.500 +02:00 [INF] New user registered: rethashkamarara@example.com (UserId: 3)
+2026-06-04 19:40:37.562 +02:00 [INF] HTTP POST /api/v1/Auth/register responded 200 in 7435.9176 ms
+2026-06-04 19:41:18.289 +02:00 [ERR] Failed executing DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @__userId_0
+2026-06-04 19:41:18.327 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskFlowAPI.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tasks'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7863f73e-4af2-4b90-8c66-197853f7212b
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tasks'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7863f73e-4af2-4b90-8c66-197853f7212b
+Error Number:208,State:1,Class:16
+2026-06-04 19:41:18.342 +02:00 [ERR] HTTP GET /api/v1/Tasks responded 500 in 273.0474 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tasks'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskFlowAPI.Repositories.TaskRepository.GetAllAsync(TaskQueryParameters queryParameters, Int32 userId) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Repositories\TaskRepository.cs:line 36
+   at TaskFlowAPI.Controllers.TasksController.GetAllTasks(TaskQueryParameters queryParams) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Controllers\TasksController.cs:line 54
+   at lambda_method90(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:7863f73e-4af2-4b90-8c66-197853f7212b
+Error Number:208,State:1,Class:16
+2026-06-04 19:41:18.395 +02:00 [ERR] Unhandled exception occurred: Invalid object name 'Tasks'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tasks'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskFlowAPI.Repositories.TaskRepository.GetAllAsync(TaskQueryParameters queryParameters, Int32 userId) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Repositories\TaskRepository.cs:line 36
+   at TaskFlowAPI.Controllers.TasksController.GetAllTasks(TaskQueryParameters queryParams) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Controllers\TasksController.cs:line 54
+   at lambda_method90(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at TaskFlowAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Exceptions\ExceptionMiddleware.cs:line 29
+ClientConnectionId:7863f73e-4af2-4b90-8c66-197853f7212b
+Error Number:208,State:1,Class:16
+2026-06-04 19:42:35.250 +02:00 [INF] Application is shutting down...
+2026-06-04 19:44:10.458 +02:00 [FTL] TaskFlow API failed to start.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\taskflowapi\Program.cs:line 166
+2026-06-04 19:44:30.555 +02:00 [FTL] TaskFlow API failed to start.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\taskflowapi\Program.cs:line 166
+2026-06-04 19:45:25.100 +02:00 [FTL] TaskFlow API failed to start.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\taskflowapi\Program.cs:line 166
+2026-06-04 19:46:01.769 +02:00 [FTL] TaskFlow API failed to start.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\taskflowapi\Program.cs:line 166
+2026-06-04 19:46:29.400 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 19:46:29.630 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 19:46:29.788 +02:00 [INF] Hosting environment: Development
+2026-06-04 19:46:29.790 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 19:46:31.028 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 375.4019 ms
+2026-06-04 19:46:33.506 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 32.2470 ms
+2026-06-04 19:47:39.822 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-04 19:47:42.857 +02:00 [INF] New user registered: rethabile@example.com (UserId: 1)
+2026-06-04 19:47:42.915 +02:00 [INF] HTTP POST /api/v1/Auth/register responded 200 in 3097.7267 ms
+2026-06-04 19:48:31.632 +02:00 [INF] User logged in: rethabile@example.com (UserId: 1)
+2026-06-04 19:48:31.637 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 200 in 643.8157 ms
+2026-06-04 19:49:09.182 +02:00 [INF] HTTP GET /api/v1/Tasks responded 200 in 432.3996 ms
+2026-06-04 20:00:15.838 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:00:16.161 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:00:16.281 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:00:16.284 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:00:16.596 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 157.4995 ms
+2026-06-04 20:00:18.180 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 42.0192 ms
+2026-06-04 20:00:52.200 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-04 20:00:52.258 +02:00 [INF] HTTP GET /api/v1/seed/categories responded 405 in 92.9036 ms
+2026-06-04 20:00:59.984 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 246.0417 ms
+2026-06-04 20:01:22.120 +02:00 [INF] HTTP POST /api/v1/Seed/categories responded 200 in 4744.2271 ms
+2026-06-04 20:01:43.555 +02:00 [INF] HTTP GET /api/v1/Categories responded 200 in 161.1285 ms
+2026-06-04 20:09:20.341 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:09:20.589 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:09:20.624 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:09:20.627 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:09:21.799 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 193.2707 ms
+2026-06-04 20:09:23.901 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 43.5707 ms
+2026-06-04 20:10:33.889 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:10:34.237 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:10:34.550 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 158.7949 ms
+2026-06-04 20:10:35.656 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:10:35.765 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:10:36.497 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 47.6761 ms
+2026-06-04 20:14:41.235 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:14:42.211 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:14:42.931 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:14:43.457 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:14:43.728 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 369.1021 ms
+2026-06-04 20:14:46.036 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 317.4462 ms
+2026-06-04 20:16:57.723 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:16:57.983 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:16:58.056 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:16:58.061 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:16:59.903 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 347.4883 ms
+2026-06-04 20:17:05.461 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 473.3588 ms
+2026-06-04 20:25:26.014 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:25:26.245 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:25:26.309 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:25:26.311 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:25:26.955 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 132.9136 ms
+2026-06-04 20:25:27.736 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 34.1324 ms
+2026-06-04 20:28:50.601 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-04 20:28:50.971 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-04 20:28:51.066 +02:00 [INF] Hosting environment: Development
+2026-06-04 20:28:51.166 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-04 20:28:51.511 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 422.1172 ms
+2026-06-04 20:28:54.296 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 67.9420 ms
+2026-06-04 20:30:12.844 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 2.0182 ms
+2026-06-04 20:30:14.004 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 366.6003 ms

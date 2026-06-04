@@ -1,8 +1,13 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "TaskFlowAPI",
-    "version": "1.0"
+    "title": "TaskFlow API",
+    "description": "A task management REST API with JWT authentication, pagination, filtering, and user-scoped data.",
+    "contact": {
+      "name": "Rethabile Eric Siase",
+      "url": "https://github.com/Rethabile2004"
+    },
+    "version": "v1"
   },
   "paths": {
     "/api/v1/Auth/register": {
@@ -10,6 +15,7 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Registers a new user account and returns a JWT token on success.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58,6 +64,7 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Authenticates an existing user and returns a JWT token on success.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -106,6 +113,7 @@
         "tags": [
           "Categories"
         ],
+        "summary": "Returns all available categories.",
         "responses": {
           "200": {
             "description": "OK",
@@ -142,6 +150,7 @@
         "tags": [
           "Categories"
         ],
+        "summary": "Creates a new category.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -190,6 +199,7 @@
         "tags": [
           "Categories"
         ],
+        "summary": "Returns a single category by id.",
         "parameters": [
           {
             "name": "id",
@@ -225,11 +235,24 @@
         }
       }
     },
+    "/api/v1/Seed/categories": {
+      "post": {
+        "tags": [
+          "Seed"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/Tasks": {
       "get": {
         "tags": [
           "Tasks"
         ],
+        "summary": "Returns a paginated, filterable list of tasks for the authenticated user.",
         "parameters": [
           {
             "name": "IsCompleted",
@@ -283,26 +306,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TaskResponseDtoPagedResult"
-                  }
+                  "$ref": "#/components/schemas/TaskResponseDtoPagedResult"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TaskResponseDtoPagedResult"
-                  }
+                  "$ref": "#/components/schemas/TaskResponseDtoPagedResult"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TaskResponseDtoPagedResult"
-                  }
+                  "$ref": "#/components/schemas/TaskResponseDtoPagedResult"
                 }
               }
             }
@@ -313,6 +327,7 @@
         "tags": [
           "Tasks"
         ],
+        "summary": "Creates a new task for the authenticated user.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -361,6 +376,7 @@
         "tags": [
           "Tasks"
         ],
+        "summary": "Returns a single task by id. Only accessible by the task owner.",
         "parameters": [
           {
             "name": "id",
@@ -399,6 +415,7 @@
         "tags": [
           "Tasks"
         ],
+        "summary": "Replaces an existing task entirely. Only accessible by the task owner.",
         "parameters": [
           {
             "name": "id",
@@ -439,6 +456,7 @@
         "tags": [
           "Tasks"
         ],
+        "summary": "Partially updates a task. Only provided fields are updated.",
         "parameters": [
           {
             "name": "id",
@@ -479,6 +497,7 @@
         "tags": [
           "Tasks"
         ],
+        "summary": "Deletes a task. Only accessible by the task owner.",
         "parameters": [
           {
             "name": "id",
@@ -684,6 +703,11 @@
           "isCompleted": {
             "type": "boolean",
             "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -800,6 +824,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter your JWT token. Example: eyJhbGci...",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

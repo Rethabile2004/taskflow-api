@@ -124,6 +124,16 @@
     ]
   },
   {
+    "ContainingType": "TaskFlowAPI.Controllers.SeedController",
+    "Method": "SeedCategories",
+    "RelativePath": "api/v1/Seed/categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TaskFlowAPI.Controllers.TasksController",
     "Method": "GetAllTasks",
     "RelativePath": "api/v1/Tasks",
@@ -164,7 +174,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TaskFlowAPI.DTOs.PagedResult\u00601[[TaskFlowAPI.DTOs.TaskResponseDto, TaskFlowAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], TaskFlowAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "TaskFlowAPI.DTOs.PagedResult\u00601[[TaskFlowAPI.DTOs.TaskResponseDto, TaskFlowAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
