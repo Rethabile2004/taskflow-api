@@ -1,7 +1,8 @@
-﻿using System.Security.Claims;
-using Asp.Versioning;
+﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Security.Claims;
 using TaskFlowAPI.DTOs;
 using TaskFlowAPI.Models;
 using TaskFlowAPI.Repositories;
@@ -47,6 +48,7 @@ namespace TaskFlowAPI.Controllers
         /// Returns a paginated, filterable list of tasks for the authenticated user.
         /// </summary>
         [HttpGet]
+        [EnableRateLimiting("read")]
         public async Task<ActionResult<PagedResult<TaskResponseDto>>> GetAllTasks(
             [FromQuery] TaskQueryParameters queryParams)
         {
@@ -68,6 +70,7 @@ namespace TaskFlowAPI.Controllers
         /// Returns a single task by id. Only accessible by the task owner.
         /// </summary>
         [HttpGet("{id}")]
+        [EnableRateLimiting("read")]
         public async Task<ActionResult<TaskResponseDto>> GetTaskById(int id)
         {
             var userId = GetCurrentUserId();
@@ -82,6 +85,7 @@ namespace TaskFlowAPI.Controllers
         /// Creates a new task for the authenticated user.
         /// </summary>
         [HttpPost]
+        [EnableRateLimiting("write")]
         public async Task<ActionResult<TaskResponseDto>> CreateTask(TaskCreateDto createDto)
         {
             var userId = GetCurrentUserId();
@@ -107,6 +111,7 @@ namespace TaskFlowAPI.Controllers
         /// Replaces an existing task entirely. Only accessible by the task owner.
         /// </summary>
         [HttpPut("{id}")]
+        [EnableRateLimiting("write")]
         public async Task<ActionResult> UpdateTask(int id, TaskCreateDto updateDto)
         {
             var userId = GetCurrentUserId();
@@ -128,6 +133,7 @@ namespace TaskFlowAPI.Controllers
         /// <summary>
         /// Partially updates a task. Only provided fields are updated.
         /// </summary>
+        [EnableRateLimiting("write")]
         [HttpPatch("{id}")]
         public async Task<ActionResult> PatchTask(int id, TaskPatchDto patchDto)
         {
@@ -150,6 +156,7 @@ namespace TaskFlowAPI.Controllers
         /// <summary>
         /// Deletes a task. Only accessible by the task owner.
         /// </summary>
+        [EnableRateLimiting("write")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteTask(int id)
         {

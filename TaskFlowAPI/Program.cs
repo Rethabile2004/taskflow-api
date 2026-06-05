@@ -1,10 +1,12 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using System.Threading.RateLimiting;
 using TaskFlowAPI.Data;
 using TaskFlowAPI.Middleware;
 using TaskFlowAPI.Repositories;
@@ -50,6 +52,40 @@ try
     
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
+
+    builder.Services.AddRateLimiter(options =>
+    {
+        // Global 429 response — returned when any limit is exceeded
+        options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+        // Auth policy — strictest — stops brute force on login/register
+        options.AddFixedWindowLimiter("auth", limiterOptions =>
+        {
+            limiterOptions.PermitLimit = 5;               // 5 requests
+            limiterOptions.Window = TimeSpan.FromMinutes(1); // per minute
+            limiterOptions.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+            limiterOptions.QueueLimit = 0;                // no queuing — reject immediately
+        });
+
+        // Write policy — for POST, PUT, PATCH, DELETE
+        options.AddFixedWindowLimiter("write", limiterOptions =>
+        {
+            limiterOptions.PermitLimit = 30;
+            limiterOptions.Window = TimeSpan.FromMinutes(1);
+            limiterOptions.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+            limiterOptions.QueueLimit = 0;
+        });
+
+        // Read policy — for GET endpoints
+        options.AddFixedWindowLimiter("read", limiterOptions =>
+        {
+            limiterOptions.PermitLimit = 100;
+            limiterOptions.Window = TimeSpan.FromMinutes(1);
+            limiterOptions.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+            limiterOptions.QueueLimit = 0;
+        });
+    });
+
     builder.Services.AddApiVersioning(options =>
     {
         // Default version when none is specified
@@ -184,6 +220,7 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+    app.UseRateLimiter();
 
     app.UseHttpsRedirection();
     app.UseAuthentication();

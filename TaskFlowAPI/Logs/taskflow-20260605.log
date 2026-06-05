@@ -1,0 +1,310 @@
+2026-06-05 13:23:40.493 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-05 13:23:54.674 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-05 13:23:55.711 +02:00 [INF] Hosting environment: Development
+2026-06-05 13:23:56.023 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-05 13:23:57.788 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 503.0519 ms
+2026-06-05 13:23:58.591 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 60.4537 ms
+2026-06-05 13:26:11.424 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-05 13:26:22.075 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:22.181 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 10767.1664 ms
+2026-06-05 13:26:31.381 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:31.401 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 143.0753 ms
+2026-06-05 13:26:34.496 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:34.508 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 123.4792 ms
+2026-06-05 13:26:35.826 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:35.896 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 89.3753 ms
+2026-06-05 13:26:37.344 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:37.349 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 19.1802 ms
+2026-06-05 13:26:38.307 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:38.327 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 35.4537 ms
+2026-06-05 13:26:39.277 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:39.281 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 8.1593 ms
+2026-06-05 13:26:40.116 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:40.245 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 135.0336 ms
+2026-06-05 13:26:40.421 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:40.425 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 22.1278 ms
+2026-06-05 13:26:40.545 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:40.547 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 14.7304 ms
+2026-06-05 13:26:40.875 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:40.994 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 131.9387 ms
+2026-06-05 13:26:41.463 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:41.659 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 261.7156 ms
+2026-06-05 13:26:41.805 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:41.809 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 15.4623 ms
+2026-06-05 13:26:41.965 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:41.973 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 15.6382 ms
+2026-06-05 13:26:42.133 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:42.143 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 13.2854 ms
+2026-06-05 13:26:42.282 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:42.289 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 11.5494 ms
+2026-06-05 13:26:42.432 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:42.440 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 19.7317 ms
+2026-06-05 13:26:42.580 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:42.583 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 16.5141 ms
+2026-06-05 13:26:42.755 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:42.760 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 22.2915 ms
+2026-06-05 13:26:42.910 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:42.914 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 18.0805 ms
+2026-06-05 13:26:43.057 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:43.059 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 11.9421 ms
+2026-06-05 13:26:43.209 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:43.226 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 32.4011 ms
+2026-06-05 13:26:43.407 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:43.414 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 40.3761 ms
+2026-06-05 13:26:43.528 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:43.534 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 21.9873 ms
+2026-06-05 13:26:43.675 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:43.690 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 17.8085 ms
+2026-06-05 13:26:43.845 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:43.849 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 17.3826 ms
+2026-06-05 13:26:44.004 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.009 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 19.1944 ms
+2026-06-05 13:26:44.188 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.211 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 35.9034 ms
+2026-06-05 13:26:44.339 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.343 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 15.1136 ms
+2026-06-05 13:26:44.478 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.489 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 13.4103 ms
+2026-06-05 13:26:44.643 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.647 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 19.9886 ms
+2026-06-05 13:26:44.811 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.815 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 16.8213 ms
+2026-06-05 13:26:44.981 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:44.983 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 5.4433 ms
+2026-06-05 13:26:45.183 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:45.193 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 13.7616 ms
+2026-06-05 13:26:45.379 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:45.560 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 233.3876 ms
+2026-06-05 13:26:45.904 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:26:46.109 +02:00 [INF] HTTP POST /api/v1/Auth/login responded 401 in 236.2121 ms
+2026-06-05 13:27:18.976 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-05 13:27:19.504 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-05 13:27:19.788 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 262.2322 ms
+2026-06-05 13:27:19.855 +02:00 [INF] Hosting environment: Development
+2026-06-05 13:27:19.880 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-05 13:27:21.249 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 33.9760 ms
+2026-06-05 13:29:08.754 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-05 13:29:12.387 +02:00 [INF] HTTP GET /api/tasks/3 responded 404 in 3657.3476 ms
+2026-06-05 13:29:39.710 +02:00 [INF] HTTP GET /api/tasks/3 responded 404 in 48.1628 ms
+2026-06-05 13:30:00.788 +02:00 [INF] HTTP GET /api/tasks/3 responded 404 in 23.7072 ms
+2026-06-05 13:30:05.043 +02:00 [INF] HTTP GET /api/tasks/ responded 404 in 12.3198 ms
+2026-06-05 13:30:43.049 +02:00 [INF] HTTP GET /api/auth/login responded 404 in 0.7591 ms
+2026-06-05 13:30:47.201 +02:00 [INF] HTTP GET /api/auth/login responded 404 in 1.1167 ms
+2026-06-05 13:31:01.265 +02:00 [INF] HTTP GET /api/auth/login responded 404 in 0.6511 ms
+2026-06-05 13:32:03.648 +02:00 [INF] HTTP GET /api/auth/login responded 404 in 0.3833 ms
+2026-06-05 13:32:09.099 +02:00 [INF] HTTP GET /api/auth/login responded 404 in 0.2577 ms
+2026-06-05 13:32:14.413 +02:00 [INF] HTTP GET /api/auth/login responded 404 in 0.1947 ms
+2026-06-05 13:32:28.799 +02:00 [INF] HTTP POST /api/auth/login responded 404 in 0.1635 ms
+2026-06-05 13:32:35.231 +02:00 [INF] HTTP POST /api/auth/login responded 404 in 0.1926 ms
+2026-06-05 13:33:17.686 +02:00 [ERR] An error occurred using the connection to database 'TaskFlowDb' on server '(localdb)\mssqllocaldb'.
+2026-06-05 13:33:17.744 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskFlowAPI.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13034; handshake=24; [Login] initialization=5; authentication=10; [Post-Login] complete=1023; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e640e2d9-c4a3-408a-9cf1-674cbc0bfe0d
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13034; handshake=24; [Login] initialization=5; authentication=10; [Post-Login] complete=1023; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e640e2d9-c4a3-408a-9cf1-674cbc0bfe0d
+Error Number:-2,State:0,Class:11
+2026-06-05 13:33:17.817 +02:00 [ERR] HTTP POST /api/v1/auth/login responded 500 in 32039.4270 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13034; handshake=24; [Login] initialization=5; authentication=10; [Post-Login] complete=1023; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskFlowAPI.Controllers.AuthController.Login(LoginDto loginDto) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Controllers\AuthController.cs:line 92
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:e640e2d9-c4a3-408a-9cf1-674cbc0bfe0d
+Error Number:-2,State:0,Class:11
+2026-06-05 13:33:19.279 +02:00 [ERR] Unhandled exception occurred: Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13034; handshake=24; [Login] initialization=5; authentication=10; [Post-Login] complete=1023; 
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13034; handshake=24; [Login] initialization=5; authentication=10; [Post-Login] complete=1023; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at TaskFlowAPI.Controllers.AuthController.Login(LoginDto loginDto) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Controllers\AuthController.cs:line 92
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at TaskFlowAPI.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\Exceptions\ExceptionMiddleware.cs:line 29
+ClientConnectionId:e640e2d9-c4a3-408a-9cf1-674cbc0bfe0d
+Error Number:-2,State:0,Class:11
+2026-06-05 13:33:36.224 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:36.763 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 2569.9726 ms
+2026-06-05 13:33:39.098 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:39.166 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 590.1913 ms
+2026-06-05 13:33:40.395 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:40.571 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 225.8882 ms
+2026-06-05 13:33:41.543 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:41.546 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 56.1885 ms
+2026-06-05 13:33:42.806 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:42.891 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 317.2237 ms
+2026-06-05 13:33:43.976 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:44.399 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 511.9678 ms
+2026-06-05 13:33:45.455 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:45.722 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 285.0796 ms
+2026-06-05 13:33:46.497 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:46.703 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 256.6333 ms
+2026-06-05 13:33:47.725 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:48.554 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 850.2833 ms
+2026-06-05 13:33:49.490 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:33:50.105 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 633.2601 ms
+2026-06-05 13:35:20.269 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-05 13:35:21.597 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-05 13:35:23.003 +02:00 [INF] Hosting environment: Development
+2026-06-05 13:35:23.322 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-05 13:35:36.359 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-05 13:35:33.724 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 480.3263 ms
+2026-06-05 13:35:53.799 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:35:53.859 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 17795.0704 ms
+2026-06-05 13:36:00.471 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:36:00.487 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 1239.4241 ms
+2026-06-05 13:36:03.729 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 50.5460 ms
+2026-06-05 13:36:04.879 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:36:04.985 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 842.9995 ms
+2026-06-05 13:36:06.162 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:36:06.356 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 226.2781 ms
+2026-06-05 13:36:07.729 +02:00 [WRN] Failed login attempt — email not found: user@example.com
+2026-06-05 13:36:07.735 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 15.1889 ms
+2026-06-05 13:36:08.751 +02:00 [INF] HTTP POST /api/v1/auth/login responded 429 in 2.8541 ms
+2026-06-05 13:36:33.960 +02:00 [INF] Application is shutting down...
