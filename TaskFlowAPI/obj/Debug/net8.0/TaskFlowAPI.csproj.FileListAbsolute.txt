@@ -174,3 +174,5 @@ C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\bin\De
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\TaskFlowAPI.xml
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\bin\Debug\net8.0\appsettings.Production.json
+C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\bin\Debug\net8.0\Npgsql.dll
+C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

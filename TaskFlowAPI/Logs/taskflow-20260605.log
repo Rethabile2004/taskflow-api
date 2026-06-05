@@ -308,3 +308,10 @@ Error Number:-2,State:0,Class:11
 2026-06-05 13:36:07.735 +02:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 15.1889 ms
 2026-06-05 13:36:08.751 +02:00 [INF] HTTP POST /api/v1/auth/login responded 429 in 2.8541 ms
 2026-06-05 13:36:33.960 +02:00 [INF] Application is shutting down...
+2026-06-05 14:03:45.709 +02:00 [INF] Now listening on: http://localhost:5285
+2026-06-05 14:03:46.250 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-05 14:03:46.258 +02:00 [INF] Hosting environment: Development
+2026-06-05 14:03:46.261 +02:00 [INF] Content root path: C:\Users\erick\Downloads\Personal\Asp Net Web Api\TaskFlowAPI\TaskFlowAPI
+2026-06-05 14:03:50.616 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-06-05 14:03:50.674 +02:00 [INF] HTTP GET /swagger/index.html responded 404 in 77.1200 ms
+2026-06-05 14:04:12.151 +02:00 [INF] Application is shutting down...

@@ -247,6 +247,18 @@
         }
       }
     },
+    "/health": {
+      "get": {
+        "tags": [
+          "TaskFlowAPI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/Tasks": {
       "get": {
         "tags": [

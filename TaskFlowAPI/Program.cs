@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Serilog;
 using System.Text;
 using System.Threading.RateLimiting;
@@ -12,9 +13,6 @@ using TaskFlowAPI.Middleware;
 using TaskFlowAPI.Repositories;
 using TaskFlowAPI.Services;
 
-// Configure Serilog Before Everything Else 
-
-// Bootstrap logger catches any errors during startup before the app is fully built
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
@@ -25,49 +23,38 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
-
+    // ── Serilog ───────────────────────────────────────────────────────────────
     builder.Host.UseSerilog((context, services, configuration) => configuration
-        // Read base configuration from appsettings.json
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services)
-
-        // Always write to console
         .WriteTo.Console(
             outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-
-        // Write to a rolling file — new file created each day
-        // Logs folder is created automatically
         .WriteTo.File(
             path: "Logs/taskflow-.log",
             rollingInterval: RollingInterval.Day,
             outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
-            retainedFileCountLimit: 7) // Keep 7 days of logs
-
-        // Minimum level — ignore anything below Information
+            retainedFileCountLimit: 7)
         .MinimumLevel.Information()
-
-        // Suppress noisy ASP.NET framework logs below Warning
         .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
         .MinimumLevel.Override("Microsoft.Hosting.Lifetime", Serilog.Events.LogEventLevel.Information));
-    
+
+    // ── Register Services ─────────────────────────────────────────────────────
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
 
+    // ── Rate Limiting ─────────────────────────────────────────────────────────
     builder.Services.AddRateLimiter(options =>
     {
-        // Global 429 response — returned when any limit is exceeded
         options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 
-        // Auth policy — strictest — stops brute force on login/register
         options.AddFixedWindowLimiter("auth", limiterOptions =>
         {
-            limiterOptions.PermitLimit = 5;               // 5 requests
-            limiterOptions.Window = TimeSpan.FromMinutes(1); // per minute
+            limiterOptions.PermitLimit = 5;
+            limiterOptions.Window = TimeSpan.FromMinutes(1);
             limiterOptions.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-            limiterOptions.QueueLimit = 0;                // no queuing — reject immediately
+            limiterOptions.QueueLimit = 0;
         });
 
-        // Write policy — for POST, PUT, PATCH, DELETE
         options.AddFixedWindowLimiter("write", limiterOptions =>
         {
             limiterOptions.PermitLimit = 30;
@@ -76,7 +63,6 @@ try
             limiterOptions.QueueLimit = 0;
         });
 
-        // Read policy — for GET endpoints
         options.AddFixedWindowLimiter("read", limiterOptions =>
         {
             limiterOptions.PermitLimit = 100;
@@ -86,50 +72,23 @@ try
         });
     });
 
+    // ── API Versioning ────────────────────────────────────────────────────────
     builder.Services.AddApiVersioning(options =>
     {
-        // Default version when none is specified
         options.DefaultApiVersion = new ApiVersion(1, 0);
-
-        // Assume default version when client doesn't specify one
         options.AssumeDefaultVersionWhenUnspecified = true;
-
-        // Include supported versions in response headers
-        // Client sees: api-supported-versions: 1.0
         options.ReportApiVersions = true;
-
-        // Read version from URL segment e.g. /api/v1/tasks
         options.ApiVersionReader = new UrlSegmentApiVersionReader();
     })
     .AddApiExplorer(options =>
     {
-        // Format version as 'v{major}' in the URL
         options.GroupNameFormat = "'v'VVV";
-
-        // Substitute the version in the route template automatically
         options.SubstituteApiVersionInUrl = true;
     });
-    builder.Services.AddSwaggerGen();
 
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-    builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-    builder.Services.AddScoped<ITokenService, TokenService>();
-
-    builder.Services.AddCors(options =>
-    {
-        options.AddPolicy("ReactAppPolicy", policy =>
-        {
-            policy.WithOrigins("http://localhost:5173") 
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
-    });
-
+    // ── Swagger ───────────────────────────────────────────────────────────────
     builder.Services.AddSwaggerGen(options =>
     {
-        // Create a separate Swagger doc for each API version
         options.SwaggerDoc("v1", new OpenApiInfo
         {
             Title = "TaskFlow API",
@@ -143,22 +102,16 @@ try
             }
         });
 
-        // Define the JWT Bearer security scheme
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
-            // What it is
             Name = "Authorization",
             Type = SecuritySchemeType.Http,
             Scheme = "Bearer",
             BearerFormat = "JWT",
             In = ParameterLocation.Header,
-
-            // Instructions shown in Swagger UI
             Description = "Enter your JWT token. Example: eyJhbGci..."
         });
 
-        // Apply the security requirement globally
-        // Every endpoint shows the padlock — protected ones require the token
         options.AddSecurityRequirement(new OpenApiSecurityRequirement
         {
             {
@@ -174,12 +127,41 @@ try
             }
         });
 
-        // Include XML comments in Swagger UI
         var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
         var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
         options.IncludeXmlComments(xmlPath);
     });
 
+    // ── DbContext — switch provider based on environment ──────────────────────
+    // MUST be registered here on builder, not after app.Build()
+    if (builder.Environment.IsDevelopment())
+    {
+        builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnection")));
+    }
+    else
+    {
+        builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(
+                builder.Configuration.GetConnectionString("DefaultConnection")));
+    }
+
+    // ── Other Services ────────────────────────────────────────────────────────
+    builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+    builder.Services.AddScoped<ITokenService, TokenService>();
+
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("ReactAppPolicy", policy =>
+        {
+            policy.WithOrigins("http://localhost:5173")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+    });
+
+    // ── JWT Authentication ────────────────────────────────────────────────────
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -198,19 +180,20 @@ try
         });
 
     // Build the App 
-
     var app = builder.Build();
 
-    // Configure Middleware 
+    // Auto-apply migrations on startup 
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        db.Database.Migrate();
+    }
 
-    // Exception middleware first — wraps everything
+    // Configure Middleware
     app.UseMiddleware<ExceptionMiddleware>();
 
-    // Serilog request logging — logs every HTTP request automatically
-    // Placed after exception middleware so failed requests are still logged
     app.UseSerilogRequestLogging(options =>
     {
-        // Customize what gets logged per request
         options.MessageTemplate =
             "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
     });
@@ -224,28 +207,28 @@ try
             options.RoutePrefix = string.Empty;
         });
     }
+
+    app.UseHttpsRedirection();
     app.UseRateLimiter();
-    // Health check endpoint — used by hosting platforms to verify the app is running
+    app.UseCors("ReactAppPolicy");
+    app.UseAuthentication();
+    app.UseAuthorization();
+    app.MapControllers();
+
     app.MapGet("/health", () => Results.Ok(new
     {
         status = "healthy",
         timestamp = DateTime.UtcNow,
         version = "1.0"
     }));
-    app.UseHttpsRedirection();
-    app.UseAuthentication();
-    app.UseAuthorization();
-    app.MapControllers();
 
     app.Run();
 }
 catch (Exception ex)
 {
-    // If startup fails completely, log the fatal error
     Log.Fatal(ex, "TaskFlow API failed to start.");
 }
 finally
 {
-    // Always flush and close the log on shutdown
     Log.CloseAndFlush();
 }
