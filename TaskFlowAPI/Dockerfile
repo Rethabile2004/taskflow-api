@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY *.csproj ./
+COPY TaskFlowAPI/*.csproj ./
 RUN dotnet restore
 
-COPY . ./
+COPY TaskFlowAPI/ ./
 RUN dotnet publish -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
