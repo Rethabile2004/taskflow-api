@@ -1,5 +1,12 @@
 # Local development settings — contain secrets
 appsettings.Development.json
+TaskFlowAPI/appsettings.json
+TaskFlowAPI/appsettings.Development.json
+TaskFlowAPI/appsettings.Production.json
+TaskFlowAPI/Logs
+TaskFlowAPI/bin
+TaskFlowAPI/obj
+TaskFlowAPI/TaskFlowAPI.http 
 
 # Runtime logs
 Logs/
@@ -11,7 +18,6 @@ obj/
 # Visual Studio
 .vs/
 *.user
-
 # OS
 .DS_Store
 Thumbs.db

@@ -15,24 +15,24 @@
       "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\taskflowapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\taskflowapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\seedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\controllers\\seedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\seedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\controllers\\seedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\taskflowapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\taskflowapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|solutionrelative:taskflowapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FD4D2A74-F86A-4752-AB53-7C24FE6D4503}|TaskFlowAPI\\TaskFlowAPI.csproj|c:\\users\\erick\\downloads\\personal\\asp net web api\\taskflowapi\\taskflowapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,20 +93,20 @@
               "RelativeDocumentMoniker": "TaskFlowAPI\\appsettings.Production.json",
               "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\appsettings.Production.json",
               "RelativeToolTip": "TaskFlowAPI\\appsettings.Production.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-06-05T11:45:45.246Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\appsettings.json",
               "RelativeDocumentMoniker": "TaskFlowAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\appsettings.json",
-              "RelativeToolTip": "TaskFlowAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\appsettings.json*",
+              "RelativeToolTip": "TaskFlowAPI\\appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-06-05T11:40:11.757Z",
               "EditorCaption": ""
@@ -125,19 +125,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "SeedController.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\SeedController.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Controllers\\SeedController.cs",
               "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\SeedController.cs",
               "RelativeToolTip": "TaskFlowAPI\\Controllers\\SeedController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-04T17:59:39.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "TaskFlowAPI.csproj",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\TaskFlowAPI.csproj",
               "RelativeDocumentMoniker": "TaskFlowAPI\\TaskFlowAPI.csproj",
@@ -145,8 +145,7 @@
               "RelativeToolTip": "TaskFlowAPI\\TaskFlowAPI.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-04T17:30:05.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T17:30:05.248Z"
             },
             {
               "$type": "Document",
@@ -162,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Controllers\\AuthController.cs",
@@ -180,7 +179,7 @@
               "RelativeDocumentMoniker": "TaskFlowAPI\\Program.cs",
               "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Program.cs*",
               "RelativeToolTip": "TaskFlowAPI\\Program.cs*",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAAAJkAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAAANwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-18T17:20:10.07Z",
               "EditorCaption": ""
@@ -211,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "TasksController.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Controllers\\TasksController.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Controllers\\TasksController.cs",

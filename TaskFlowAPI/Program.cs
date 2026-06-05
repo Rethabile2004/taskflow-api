@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Serilog;
 using System.Text;
 using System.Threading.RateLimiting;
@@ -23,7 +22,13 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // ── Serilog ───────────────────────────────────────────────────────────────
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+    builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
+    var secretKey = builder.Configuration["JwtSettings:SecretKey"]
+    ?? throw new InvalidOperationException(
+        "JWT SecretKey is missing.");
+
     builder.Host.UseSerilog((context, services, configuration) => configuration
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services)
@@ -38,11 +43,9 @@ try
         .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
         .MinimumLevel.Override("Microsoft.Hosting.Lifetime", Serilog.Events.LogEventLevel.Information));
 
-    // ── Register Services ─────────────────────────────────────────────────────
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
 
-    // ── Rate Limiting ─────────────────────────────────────────────────────────
     builder.Services.AddRateLimiter(options =>
     {
         options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
@@ -72,7 +75,6 @@ try
         });
     });
 
-    // ── API Versioning ────────────────────────────────────────────────────────
     builder.Services.AddApiVersioning(options =>
     {
         options.DefaultApiVersion = new ApiVersion(1, 0);
@@ -86,7 +88,6 @@ try
         options.SubstituteApiVersionInUrl = true;
     });
 
-    // ── Swagger ───────────────────────────────────────────────────────────────
     builder.Services.AddSwaggerGen(options =>
     {
         options.SwaggerDoc("v1", new OpenApiInfo
@@ -129,39 +130,42 @@ try
 
         var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
         var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-        options.IncludeXmlComments(xmlPath);
+        if (File.Exists(xmlPath))
+        {
+            options.IncludeXmlComments(xmlPath);
+        }
     });
 
-    // ── DbContext — switch provider based on environment ──────────────────────
-    // MUST be registered here on builder, not after app.Build()
-    if (builder.Environment.IsDevelopment())
-    {
-        builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-    }
-    else
-    {
-        builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-    }
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(
+            builder.Configuration.GetConnectionString("DefaultConnection")));
 
-    // ── Other Services ────────────────────────────────────────────────────────
     builder.Services.AddScoped<ITaskRepository, TaskRepository>();
     builder.Services.AddScoped<ITokenService, TokenService>();
+
+    var allowedOrigins = builder.Configuration
+        .GetSection("AllowedOrigins")
+        .Get<string[]>() ?? Array.Empty<string>();
 
     builder.Services.AddCors(options =>
     {
         options.AddPolicy("ReactAppPolicy", policy =>
         {
-            policy.WithOrigins("http://localhost:5173")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
+            if (builder.Environment.IsDevelopment())
+            {
+                policy.WithOrigins("http://localhost:5173")
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
+            }
+            else
+            {
+                policy.WithOrigins(allowedOrigins)
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
+            }
         });
     });
 
-    // ── JWT Authentication ────────────────────────────────────────────────────
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -173,23 +177,28 @@ try
                 ValidAudience = builder.Configuration["JwtSettings:Audience"],
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]!)),
+                         Encoding.UTF8.GetBytes(secretKey)),
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.Zero
             };
         });
 
-    // Build the App 
     var app = builder.Build();
 
-    // Auto-apply migrations on startup 
     using (var scope = app.Services.CreateScope())
     {
-        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        db.Database.Migrate();
+        try
+        {
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            db.Database.Migrate();
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Database migration failed.");
+            throw;
+        }
     }
 
-    // Configure Middleware
     app.UseMiddleware<ExceptionMiddleware>();
 
     app.UseSerilogRequestLogging(options =>
@@ -198,29 +207,37 @@ try
             "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
     });
 
-    if (app.Environment.IsDevelopment())
+    // Swagger available in all environments — portfolio project
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
     {
-        app.UseSwagger();
-        app.UseSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskFlow API v1");
-            options.RoutePrefix = string.Empty;
-        });
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskFlow API v1");
+        options.RoutePrefix = string.Empty;
+    });
+
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseHsts();
     }
 
     app.UseHttpsRedirection();
+
     app.UseRateLimiter();
     app.UseCors("ReactAppPolicy");
     app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();
 
-    app.MapGet("/health", () => Results.Ok(new
+    app.MapGet("/health", async (AppDbContext db) =>
     {
-        status = "healthy",
-        timestamp = DateTime.UtcNow,
-        version = "1.0"
-    }));
+        var canConnect = await db.Database.CanConnectAsync();
+
+        return Results.Ok(new
+        {
+            status = canConnect ? "healthy" : "unhealthy",
+            timestamp = DateTime.UtcNow
+        });
+    });
 
     app.Run();
 }
