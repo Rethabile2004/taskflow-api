@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Npgsql;
 using Serilog;
 using System.Text;
 using System.Threading.RateLimiting;
@@ -139,6 +140,18 @@ try
             options.IncludeXmlComments(xmlPath);
         }
     });
+
+    var rawConn = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+
+    var connectionString = rawConn.StartsWith("postgresql://") || rawConn.StartsWith("postgres://")
+        ? $"Host={new Uri(rawConn).Host};Database={new Uri(rawConn).AbsolutePath.TrimStart('/')};Username={new Uri(rawConn).UserInfo.Split(':')[0]};Password={new Uri(rawConn).UserInfo.Split(':')[1]};SSL Mode=Require;Trust Server Certificate=true"
+        : rawConn;
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(connectionString));
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(connectionString));
 
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(
