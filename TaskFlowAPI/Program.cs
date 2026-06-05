@@ -218,10 +218,20 @@ try
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskFlow API v1");
+            options.RoutePrefix = string.Empty;
+        });
     }
     app.UseRateLimiter();
-
+    // Health check endpoint — used by hosting platforms to verify the app is running
+    app.MapGet("/health", () => Results.Ok(new
+    {
+        status = "healthy",
+        timestamp = DateTime.UtcNow,
+        version = "1.0"
+    }));
     app.UseHttpsRedirection();
     app.UseAuthentication();
     app.UseAuthorization();

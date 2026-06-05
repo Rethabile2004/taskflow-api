@@ -82,8 +82,7 @@
               "RelativeToolTip": "TaskFlowAPI\\Controllers\\SeedController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T17:59:39.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T17:59:39.299Z"
             },
             {
               "$type": "Document",
@@ -119,8 +118,7 @@
               "RelativeToolTip": "TaskFlowAPI\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAQwCkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T19:06:32.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-20T19:06:32.912Z"
             },
             {
               "$type": "Document",
@@ -128,9 +126,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Program.cs",
               "RelativeDocumentMoniker": "TaskFlowAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Program.cs*",
-              "RelativeToolTip": "TaskFlowAPI\\Program.cs*",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAAAN4AAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\erick\\Downloads\\Personal\\Asp Net Web Api\\TaskFlowAPI\\TaskFlowAPI\\Program.cs",
+              "RelativeToolTip": "TaskFlowAPI\\Program.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAAANgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-18T17:20:10.07Z",
               "EditorCaption": ""
@@ -169,8 +167,7 @@
               "RelativeToolTip": "TaskFlowAPI\\Controllers\\TasksController.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAowGEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:31:38.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T11:31:38.286Z"
             },
             {
               "$type": "Document",
