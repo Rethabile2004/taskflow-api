@@ -25,9 +25,7 @@ try
     var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
     builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-    var secretKey = builder.Configuration["JwtSettings:SecretKey"]
-    ?? throw new InvalidOperationException(
-        "JWT SecretKey is missing.");
+    var secretKey = builder.Configuration["JwtSettings:SecretKey"];
 
     builder.Host.UseSerilog((context, services, configuration) => configuration
         .ReadFrom.Configuration(context.Configuration)
@@ -43,6 +41,12 @@ try
         .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
         .MinimumLevel.Override("Microsoft.Hosting.Lifetime", Serilog.Events.LogEventLevel.Information));
 
+    if (string.IsNullOrEmpty(secretKey))
+    {
+        Log.Fatal("JWT SecretKey missing — set JwtSettings__SecretKey env var on Render.");
+        Log.CloseAndFlush();
+        throw new InvalidOperationException("JWT SecretKey is missing.");
+    }
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
 
@@ -183,6 +187,11 @@ try
             };
         });
 
+    Log.Information("JWT Key present: {Present}",
+        !string.IsNullOrEmpty(builder.Configuration["JwtSettings:SecretKey"]));
+    Log.Information("DB connection present: {Present}",
+        !string.IsNullOrEmpty(builder.Configuration.GetConnectionString("DefaultConnection")));
+
     var app = builder.Build();
 
     using (var scope = app.Services.CreateScope())
@@ -215,12 +224,10 @@ try
         options.RoutePrefix = string.Empty;
     });
 
-    if (!app.Environment.IsDevelopment())
+    if (app.Environment.IsDevelopment())
     {
-        app.UseHsts();
+        app.UseHttpsRedirection();
     }
-
-    app.UseHttpsRedirection();
 
     app.UseRateLimiter();
     app.UseCors("ReactAppPolicy");
