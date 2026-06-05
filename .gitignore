@@ -1,23 +1,33 @@
-# Local development settings — contain secrets
-appsettings.Development.json
-TaskFlowAPI/appsettings.json
-TaskFlowAPI/appsettings.Development.json
-TaskFlowAPI/appsettings.Production.json
-TaskFlowAPI/Logs
-TaskFlowAPI/bin
-TaskFlowAPI/obj
-TaskFlowAPI/TaskFlowAPI.http 
-
-# Runtime logs
-Logs/
-
 # Build outputs
 bin/
 obj/
 
-# Visual Studio
-.vs/
+# Logs
+Logs/
+*.log
+
+# User-specific files
 *.user
+*.suo
+.vs/
+
+# Environment & secrets
+appsettings.Development.json
+*.env
+
+# EF Core migrations snapshot (optional — remove if you want to track it)
+# **/Migrations/
+
 # OS
 .DS_Store
 Thumbs.db
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
