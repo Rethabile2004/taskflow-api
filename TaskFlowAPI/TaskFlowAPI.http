@@ -1,6 +1,0 @@
-﻿@TaskFlowAPI_HostAddress = https://localhost:7087
-
-
-GET {{TaskFlowAPI_HostAddress}}/api/tasks/2
-
-###
