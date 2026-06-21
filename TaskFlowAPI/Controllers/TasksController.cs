@@ -90,6 +90,10 @@ namespace TaskFlowAPI.Controllers
         {
             var userId = GetCurrentUserId();
 
+            var categoryExists = await _repository.CategoryExistsAsync(createDto.CategoryId);
+            if (!categoryExists)
+                return NotFound(new { message = $"Category with id {createDto.CategoryId} does not exist." });
+
             var newTask = new TaskItem
             {
                 Title = createDto.Title,

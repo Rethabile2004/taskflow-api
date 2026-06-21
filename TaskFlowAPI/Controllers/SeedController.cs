@@ -9,18 +9,23 @@ namespace TaskFlowAPI.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiExplorerSettings(IgnoreApi =true)]
     public class SeedController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public SeedController(AppDbContext context)
+        public SeedController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         [HttpPost("categories")]
         public async Task<IActionResult> SeedCategories()
         {
+            if (!_env.IsDevelopment())
+                return NotFound();
             // Guard: if any categories exist, do not seed
             bool hasData = await _context.Categories.AnyAsync();
             if (hasData)

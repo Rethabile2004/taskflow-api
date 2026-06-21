@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Npgsql;
 using Serilog;
 using System.Text;
 using System.Threading.RateLimiting;
@@ -149,13 +148,6 @@ try
 
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(connectionString));
-
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(connectionString));
-
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(
-            builder.Configuration.GetConnectionString("DefaultConnection")));
 
     builder.Services.AddScoped<ITaskRepository, TaskRepository>();
     builder.Services.AddScoped<ITokenService, TokenService>();

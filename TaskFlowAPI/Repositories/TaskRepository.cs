@@ -81,5 +81,10 @@ namespace TaskFlowAPI.Repositories
         {
             return await _context.SaveChangesAsync() > 0;
         }
+        // Check if a category exists or not
+        public async Task<bool> CategoryExistsAsync(int categoryId)
+        {
+            return await _context.Categories.AnyAsync(c => c.Id == categoryId);
+        }
     }
 }

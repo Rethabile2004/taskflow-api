@@ -25,5 +25,7 @@ namespace TaskFlowAPI.Repositories
 
         // Persists all pending changes to the database
         Task<bool> SaveChangesAsync();
+        // Check if a category exists
+        Task<bool> CategoryExistsAsync(int categoryId);
     }
 }
